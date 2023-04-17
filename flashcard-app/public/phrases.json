@@ -1,47 +1,56 @@
 {
-    "spanish": [
-      {
-        "phrase": "Hola",
-        "translation": "Hello"
-      },
-      {
-        "phrase": "Adiós",
-        "translation": "Goodbye"
-      },
-      {
-        "phrase": "Buenos días",
-        "translation": "Good morning"
-      },
-      {
-        "phrase": "Buenas tardes",
-        "translation": "Good afternoon"
-      },
-      {
-        "phrase": "Buenas noches",
-        "translation": "Good evening/night"
-      }
-    ],
-    "french": [
-      {
-        "phrase": "Bonjour",
-        "translation": "Hello/Good morning/Good afternoon"
-      },
-      {
-        "phrase": "Au revoir",
-        "translation": "Goodbye"
-      },
-      {
-        "phrase": "Bonne nuit",
-        "translation": "Good night"
-      },
-      {
-        "phrase": "Merci",
-        "translation": "Thank you"
-      },
-      {
-        "phrase": "S'il vous plaît",
-        "translation": "Please"
-      }
-    ]
-  }
-  
+  "spanish": [
+    {
+      "id": 1,
+      "phrase": "Hola",
+      "translation": "Hello"
+    },
+    {
+      "id": 2,
+      "phrase": "Adiós",
+      "translation": "Goodbye"
+    },
+    {
+      "id": 3,
+      "phrase": "Buenos días",
+      "translation": "Good morning"
+    },
+    {
+      "id": 4,
+      "phrase": "Buenas tardes",
+      "translation": "Good afternoon"
+    },
+    {
+      "id": 5,
+      "phrase": "Buenas noches",
+      "translation": "Good evening/night"
+    }
+  ],
+  "french": [
+    {
+      "id": 1,
+      "phrase": "Bonjour",
+      "translation": "Hello/Good morning/Good afternoon"
+    },
+    {
+      "id": 2,
+      "phrase": "Au revoir",
+      "translation": "Goodbye"
+    },
+    {
+      "id": 3,
+      "phrase": "Bonne nuit",
+      "translation": "Good night"
+    },
+    {
+      "id": 4,
+      "phrase": "Merci",
+      "translation": "Thank you"
+    },
+    {
+      "id": 5,
+      "phrase": "S'il vous plaît",
+      "translation": "Please"
+    }
+  ]
+}
