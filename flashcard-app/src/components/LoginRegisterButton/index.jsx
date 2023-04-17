@@ -5,7 +5,7 @@ export default function LoginRegisterButton({handleLogin}) {
 
     return(
         <div>
-            <button className="log-reg-button"
+            <button className="log-reg-button" type="submit"
             onClick={handleLogin}>Login</button>
         </div>
     )
