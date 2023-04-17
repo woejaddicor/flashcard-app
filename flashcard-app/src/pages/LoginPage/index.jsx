@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { LoginForm, LoginRegisterButton } from "../../components";
 import { useNavigate } from "react-router-dom";
+import { useToken } from "../../contexts";
+import PropTypes from 'prop-types';
 
-export default function LoginPage() {
+let dataHolder;
+
+export default function LoginPage({token, setToken}) {
+    //const {token, setToken} = useToken();
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     function handleLogin() {
-        console.log(username, password)
+        console.log("handlelogin", username, password)
         //fetch request to db
 
         //dummy username and password
@@ -16,10 +22,25 @@ export default function LoginPage() {
         let dummyPassword = "aa"
 
         if (username === dummyUsername && password === dummyPassword) {
-            navigate("/dashboard");
+            /*const getToken = getAuth({
+                username,
+                password
+            });*/
+            getToken()
+            //getAuth(username, password)
+            //console.log("token", token)
+            //navigate("/dashboard");
         } else {
             alert("Login Failed!")
         }
+    }
+
+    const getToken = async () => {
+        console.log("gettoken", username, password)
+        const generateToken = await getAuth({username, password});
+        //console.log("token", token)
+        setToken(generateToken)
+        console.log("token", generateToken)
     }
 
     return(
@@ -28,13 +49,40 @@ export default function LoginPage() {
         <LoginForm username={username} setUsername={setUsername}
         password={password} setPassword={setPassword}/>
 
-        <LoginRegisterButton handleLogin={handleLogin}/>
+        <LoginRegisterButton handleLogin={getToken}/>
         </>
     )
 }
 
-/*<div>
-            <button className="log-reg-button"
-            onClick={handleLogin}>Login</button>
-        </div>
-        */
+
+/*headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+}*/
+
+async function getAuth(credentials) { 
+    const options = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+    }
+
+    fetch("http://127.0.0.1:3000/auth", options)
+        .then(data => data.json())
+        .then(response => {
+            console.log("data", response)
+            if (response.ok) {
+                return response
+            }
+        })
+        //.then(messages => console.log("data", messages, "dh", dataHolder))
+        .catch((err) => {
+            console.log(err)
+        })
+}
+
+LoginPage.propTypes = {
+    setToken: PropTypes.func.isRequired
+  }
