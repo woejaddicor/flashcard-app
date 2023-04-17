@@ -18,6 +18,7 @@ export default function NavBar() {
                         style={logoStyle}/></Navbar.Brand>
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/login">Login</Nav.Link>
+                        <Nav.Link href="/register">Register</Nav.Link>
                         <Nav.Link href="/dashboard">Dashboard</Nav.Link>
                         <Nav.Link href="/aboutus">About Us</Nav.Link>
                     </Container>
