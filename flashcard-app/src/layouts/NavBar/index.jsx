@@ -1,6 +1,7 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import logo from '../assets/logo.png'
+import logo from '../../assets/logo.png'
+
 
 const logoStyle = {
     width: "50px",

@@ -1,10 +1,9 @@
 import React from 'react'
 import * as Pages from './pages'
 import { Routes, Route } from 'react-router-dom'
-import NavBar from './components/Navbar'
+import { NavBar } from './layouts'
 
 function App() {
-
 
   return (
     <Routes>
