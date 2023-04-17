@@ -36,11 +36,37 @@ export default function LoginPage({token, setToken}) {
     }
 
     const getToken = async () => {
+        //e.preventDefault();
         console.log("gettoken", username, password)
         const generateToken = await getAuth({username, password});
         //console.log("token", token)
-        setToken(generateToken)
-        console.log("token", generateToken)
+        //setToken(generateToken)
+        //console.log("token", generateToken)
+    }
+
+    async function getAuth(credentials) { 
+        const options = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        }
+    
+        fetch("http://127.0.0.1:3000/auth", options)
+            .then(data => data.json())
+            .then(response => {
+                console.log("data", response)
+                //if (response.ok) {
+                console.log("token", response)
+                setToken(response)
+                return response
+                //}
+            })
+            //.then(messages => console.log("data", messages, "dh", dataHolder))
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     return(
@@ -59,29 +85,6 @@ export default function LoginPage({token, setToken}) {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
 }*/
-
-async function getAuth(credentials) { 
-    const options = {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    }
-
-    fetch("http://127.0.0.1:3000/auth", options)
-        .then(data => data.json())
-        .then(response => {
-            console.log("data", response)
-            if (response.ok) {
-                return response
-            }
-        })
-        //.then(messages => console.log("data", messages, "dh", dataHolder))
-        .catch((err) => {
-            console.log(err)
-        })
-}
 
 LoginPage.propTypes = {
     setToken: PropTypes.func.isRequired
