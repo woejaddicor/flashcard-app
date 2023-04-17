@@ -5,7 +5,6 @@ import { NavBar } from './layouts'
 
 function App() {
 
-
   return (
     <Routes>
       <Route path="/" element={<NavBar/>}>
