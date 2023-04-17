@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Flashcard, FlashcardNavigator } from "../../components";
+import { FlashcardNavigator, Flashcard } from "../../components";
 
 export default function FrenchPage() {
   const [phrases, setPhrases] = useState([]);
-  const [currentPhrase, setCurrentPhrase] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [translationRevealed, setTranslationRevealed] = useState(false);
 
   async function fetchData() {
     const response = await fetch("/phrases.json");
@@ -17,28 +15,20 @@ export default function FrenchPage() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    if (phrases.length > 0) {
-      const phrase = phrases[currentIndex];
-      setCurrentPhrase(phrase.phrase);
-      setTranslationRevealed(false);
-    }
-  }, [currentIndex, phrases]);
-
-
-
-  function goToNextPhrase(nextIndex) {
-    setCurrentIndex(nextIndex);
+  function goToNextPhrase() {
+    setCurrentIndex((currentIndex + 1) % phrases.length);
   }
 
-  function goToPreviousPhrase(previousIndex) {
-    setCurrentIndex(previousIndex);
+  function goToPreviousPhrase() {
+    setCurrentIndex((currentIndex - 1 + phrases.length) % phrases.length);
   }
 
   return (
     <div>
       <h1>French Page</h1>
-      <Flashcard phrase={phrases[currentIndex]} />
+      {phrases.length > 0 && (
+        <Flashcard phrase={phrases[currentIndex]} />
+      )}
       <FlashcardNavigator
         currentIndex={currentIndex}
         phrases={phrases}
