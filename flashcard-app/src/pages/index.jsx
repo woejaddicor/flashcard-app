@@ -1,0 +1,8 @@
+export {default as AboutUsPage} from './AboutUsPage'
+export {default as DashboardPage} from './DashboardPage'
+export {default as FrenchPage} from './FrenchPage'
+export {default as HomePage} from './HomePage'
+export {default as LoginPage} from './LoginPage'
+export {default as NotFound} from './NotFound'
+export {default as RegisterPage} from './RegisterPage'
+export {default as SpanishPage} from './SpanishPage'
