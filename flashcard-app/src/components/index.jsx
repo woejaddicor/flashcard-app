@@ -1,1 +1,1 @@
-export { default as Flashcards } from './flashcards'
+export { default as Flashcard } from './Flashcard'

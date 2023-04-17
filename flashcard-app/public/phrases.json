@@ -1,0 +1,47 @@
+{
+    "spanish": [
+      {
+        "phrase": "Hola",
+        "translation": "Hello"
+      },
+      {
+        "phrase": "Adiós",
+        "translation": "Goodbye"
+      },
+      {
+        "phrase": "Buenos días",
+        "translation": "Good morning"
+      },
+      {
+        "phrase": "Buenas tardes",
+        "translation": "Good afternoon"
+      },
+      {
+        "phrase": "Buenas noches",
+        "translation": "Good evening/night"
+      }
+    ],
+    "french": [
+      {
+        "phrase": "Bonjour",
+        "translation": "Hello/Good morning/Good afternoon"
+      },
+      {
+        "phrase": "Au revoir",
+        "translation": "Goodbye"
+      },
+      {
+        "phrase": "Bonne nuit",
+        "translation": "Good night"
+      },
+      {
+        "phrase": "Merci",
+        "translation": "Thank you"
+      },
+      {
+        "phrase": "S'il vous plaît",
+        "translation": "Please"
+      }
+    ]
+  }
+  
