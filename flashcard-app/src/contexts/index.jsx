@@ -3,7 +3,7 @@ import React, { useState, useContext, createContext } from "react";
 const tokenContext = createContext();
 
 export const TokenProvider = ({ children }) => {
-    const [token, setToken] = useState([])
+    const [token, setToken] = useState()
     
 
     return (

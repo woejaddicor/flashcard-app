@@ -2,16 +2,13 @@ import React, { useEffect } from "react";
 import { useToken } from "../../contexts";
 import LoginPage from "../LoginPage";
 
-export default function DashboardPage() {
-    const {token, setToken} = useToken();
+export default function DashboardPage({token, setToken}) {
 
-    useEffect(() => {
-        console.log("token", token)
-        if(!token) {
-            console.log("not token", token)
-            return <LoginPage/>
-          }
-    }, [])
+    console.log("tokendash", token)
+    if(!token) {
+        console.log("not token", token)
+        return <LoginPage token={token} setToken={setToken}/>
+    }
 
     return(
         <div>
