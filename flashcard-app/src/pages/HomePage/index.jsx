@@ -4,6 +4,9 @@ import banner from './gamified-language-learning-duolingo.webp'
 import './homepage.css'
 
 export default function HomePage() {
+
+    //localStorage.clear()
+
     return(
         <>
         <div className="page-banner">
