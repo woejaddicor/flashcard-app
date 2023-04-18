@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { FlashcardNavigator, Flashcard, Score } from "../../components";
+import LoginPage from "../LoginPage";
 
-export default function FrenchPage() {
+export default function FrenchPage({ token, setToken }) {
     const [phrases, setPhrases] = useState([]);
     const [index, setIndex] = useState(1);
     const [isLastQuestion, setIsLastQuestion] = useState(false);
     const [quizFinished, setQuizFinished] = useState(false); // Add state variable for quiz finished
     const totalQuestions = 15;
+
+    if(!token) {
+        return <LoginPage token={token} setToken={setToken}/>
+    }
 
     async function fetchData() {
         const response = await fetch(`https://crammer-backend.onrender.com/french/${index}`);
