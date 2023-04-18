@@ -8,8 +8,8 @@ export default function Flashcard({ phrase }) {
     }
 
     return (
-        <div onClick={handleCardClick}>
-            {showAnswer ? <p>{phrase.answer}</p> : <p>{phrase.question}</p>}
+        <div className="flashcard-container" onClick={handleCardClick}>
+            {showAnswer ? <p className="quiz-text">{phrase.answer}</p> : <p className="quiz-text">How do you say '{phrase.question}'?</p>}
         </div>
     );
 }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FlashcardNavigator, Flashcard, Score } from "../../components";
 
+import './french.css'
+
 export default function FrenchPage() {
     const [phrases, setPhrases] = useState([]);
     const [index, setIndex] = useState(1);
