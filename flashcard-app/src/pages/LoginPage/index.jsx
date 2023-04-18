@@ -8,66 +8,62 @@ import './login.css'
 
 let dataHolder;
 
-export default function LoginPage({token, setToken}) {
-    //const {token, setToken} = useToken();
-
+export default function LoginPage({reroute = "/", token, setToken}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [userFound, setUserFound] = useState(false);
     const navigate = useNavigate();
 
-    function handleLogin() {
-        console.log("handlelogin", username, password)
-        //fetch request to db
-
-        //dummy username and password
-        let dummyUsername = "aa"
-        let dummyPassword = "aa"
-
-        if (username === dummyUsername && password === dummyPassword) {
-            /*const getToken = getAuth({
-                username,
-                password
-            });*/
-            getToken()
-            //getAuth(username, password)
-            //console.log("token", token)
-            //navigate("/dashboard");
-        } else {
-            alert("Login Failed!")
+    async function getUserCreds() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
         }
-    }
-
-    const getToken = async () => {
-        //e.preventDefault();
-        console.log("gettoken", username, password)
-        const generateToken = await getAuth({username, password});
-        //console.log("token", token)
-        //setToken(generateToken)
-        //console.log("token", generateToken)
+        fetch(`http://127.0.0.1:3000/user/${username}`, options)
+            .then(data => {
+                console.log(data.ok)
+                if (data.ok) {
+                    console.log("true")
+                    data.json()
+                    const generateToken = async () => {
+                        console.log("ok")
+                        await getAuth({username, password});
+                    }
+                    generateToken()
+                } else {
+                    alert("User Credentials are Incorrect!");
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+                alert(err)
+            })
     }
 
     async function getAuth(credentials) { 
+        console.log("ok")
         const options = {
             method: 'POST',
             headers: {
+                'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             body: JSON.stringify(credentials)
         }
-    
-        fetch("http://127.0.0.1:3000/user", options)
+        
+        fetch("http://127.0.0.1:3000/user/login", options)
             .then(data => data.json())
             .then(response => {
                 console.log("data", response)
-                //if (response.ok) {
-                console.log("token", response)
                 setToken(response)
-                return response
-                //}
+                navigate(reroute)
             })
-            //.then(messages => console.log("data", messages, "dh", dataHolder))
             .catch((err) => {
                 console.log(err)
+                alert(err)
             })
     }
 
@@ -75,18 +71,12 @@ export default function LoginPage({token, setToken}) {
         <>
         <LoginForm username={username} setUsername={setUsername}
         password={password} setPassword={setPassword}/>
-        <LoginRegisterButton handleLogin={getToken}/>
+        <LoginRegisterButton buttonText="Login" handleLogin={getUserCreds}/>
         <span className="message">Don’t have an account? <a className="link" href="/register">Sign up</a>.</span>
         </>
     )
 }
 
-
-/*headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-}*/
-
 LoginPage.propTypes = {
     setToken: PropTypes.func.isRequired
-  }
+}

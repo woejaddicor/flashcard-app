@@ -1,4 +1,6 @@
 export default function FlashcardNavigator({ currentIndex, onPreviousClick, onNextClick, onFinishClick, disableNext, totalQuestions, children, }) {
+    const isLastQuestion = currentIndex === totalQuestions;
+
     return (
         <div className="flashcard-navigation">
             <button className="navigation-btn prev" onClick={onPreviousClick} disabled={currentIndex === 1}>Previous</button>

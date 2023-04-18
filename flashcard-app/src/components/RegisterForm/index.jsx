@@ -1,10 +1,7 @@
-import React, { useState } from "react";
-import LoginRegisterButton from "../LoginRegisterButton";
+import React from "react";
 
 export default function RegisterForm({repeatPassword, setRepeatPassword}) {
-
     function handleRepeatPassword(e) {
-        //console.log(e.target.value)
         setRepeatPassword(e.target.value);
     }
 

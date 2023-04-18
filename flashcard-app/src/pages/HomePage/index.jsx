@@ -5,8 +5,6 @@ import './homepage.css'
 
 export default function HomePage() {
 
-    //localStorage.clear()
-
     return(
         <div className="home-page">
         <div className="page-banner">

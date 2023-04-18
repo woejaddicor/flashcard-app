@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { FlashcardNavigator, Flashcard, Score } from "../../components";
-
+import LoginPage from "../LoginPage";
 import './french.css'
 
-export default function FrenchPage() {
-    const [phrases, setPhrases] = useState([]);
+const totalQuestions = 4;
+
+export default function FrenchPage({ token, setToken }) {
+
+    const [question, setQuestion] = useState([]);
     const [index, setIndex] = useState(1);
-    const [isLastQuestion, setIsLastQuestion] = useState(false);
-    const [quizFinished, setQuizFinished] = useState(false); // Add state variable for quiz finished
-    const totalQuestions = 15;
+    const [quizFinished, setQuizFinished] = useState(false);
+    const [wrongAnswers, setWrongAnswers] = useState([]);
+    const [clickedIndices, setClickedIndices] = useState([]);
+
+    // if (!token) {
+    //     return <LoginPage token={token} setToken={setToken} />
+    // }
 
     async function fetchData() {
-        const response = await fetch(`https://crammer-backend.onrender.com/french/${index}`);
+        const response = await fetch(
+            `https://crammer-backend.onrender.com/french/${index}`
+        );
         const data = await response.json();
-        setPhrases(data.question);
-        setIsLastQuestion(index === totalQuestions);
+        setQuestion(data.question);
     }
 
     function handlePreviousClick() {
@@ -26,7 +34,6 @@ export default function FrenchPage() {
     function handleNextClick() {
         if (index < totalQuestions) {
             setIndex(index + 1);
-            setIsLastQuestion(index + 1 === totalQuestions);
         }
     }
 
@@ -34,12 +41,20 @@ export default function FrenchPage() {
         setQuizFinished(true);
     }
 
+    function handleWrongClick() {
+        setWrongAnswers((prevWrongAnswers) => [
+            ...prevWrongAnswers,
+            { question: question.map((phrase) => phrase.question).join(" "), answer: question.map((phrase) => phrase.answer).join(" ") }
+        ]);
+        setClickedIndices((prevClickedIndices) => [...prevClickedIndices, index]);
+    }
+
     useEffect(() => {
         fetchData();
     }, [index]);
 
     if (quizFinished) {
-        return <Score />;
+        return <Score score={totalQuestions - wrongAnswers.length} totalQuestions={totalQuestions} flaggedQuestions={wrongAnswers} />;
     }
 
     return (
@@ -51,14 +66,17 @@ export default function FrenchPage() {
                 onNextClick={handleNextClick}
                 onFinishClick={handleFinishClick}
                 totalQuestions={totalQuestions}
-                disableNext={isLastQuestion}
-            />
-            {phrases.map((phrase) => (
-                <Flashcard key={phrase.id} phrase={phrase} />
-            ))}
+            >
+                {question.map((phrase) => (
+                    <Flashcard key={phrase.id} phrase={phrase} />
+                ))}
+                <button
+                    onClick={handleWrongClick}
+                    disabled={clickedIndices.includes(index)}
+                >
+                    Wrong
+                </button>
+            </FlashcardNavigator>
         </div>
     );
 }
-
-
-
