@@ -74,8 +74,8 @@ export default function LoginPage({token, setToken}) {
         <h1>Login Page</h1>
         <LoginForm username={username} setUsername={setUsername}
         password={password} setPassword={setPassword}/>
-
         <LoginRegisterButton handleLogin={getToken}/>
+        <span className="message">Don’t have an account? <a href="/register">Sign up</a>.</span>
         </>
     )
 }
