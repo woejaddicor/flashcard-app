@@ -5,7 +5,9 @@ export default function FrenchPage() {
     const [phrases, setPhrases] = useState([]);
     const [index, setIndex] = useState(1);
     const [isLastQuestion, setIsLastQuestion] = useState(false);
-    const [quizFinished, setQuizFinished] = useState(false); // Add state variable for quiz finished
+    const [quizFinished, setQuizFinished] = useState(false);
+    const [wrongAnswers, setWrongAnswers] = useState([]);
+    const [clickedIndices, setClickedIndices] = useState([]);
     const totalQuestions = 15;
 
     async function fetchData() {
@@ -32,12 +34,17 @@ export default function FrenchPage() {
         setQuizFinished(true);
     }
 
+    function handleWrongClick() {
+        setWrongAnswers((prevWrongAnswers) => [...prevWrongAnswers, index]);
+        setClickedIndices((prevClickedIndices) => [...prevClickedIndices, index]);
+    }
+
     useEffect(() => {
         fetchData();
     }, [index]);
 
     if (quizFinished) {
-        return <Score />;
+        return <Score wrongAnswers={wrongAnswers} />;
     }
 
     return (
@@ -50,13 +57,15 @@ export default function FrenchPage() {
                 onFinishClick={handleFinishClick}
                 totalQuestions={totalQuestions}
                 disableNext={isLastQuestion}
-            />
-            {phrases.map((phrase) => (
-                <Flashcard key={phrase.id} phrase={phrase} />
-            ))}
+            >
+                {phrases.map((phrase) => (
+                    <Flashcard key={phrase.id} phrase={phrase} />
+                ))}
+                <button onClick={handleWrongClick} disabled={clickedIndices.includes(index)}>
+                    Wrong
+                </button>
+            </FlashcardNavigator>
+
         </div>
     );
 }
-
-
-
