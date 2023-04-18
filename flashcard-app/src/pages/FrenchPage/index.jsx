@@ -3,38 +3,38 @@ import { FlashcardNavigator, Flashcard } from "../../components";
 
 export default function FrenchPage() {
     const [phrases, setPhrases] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [index, setIndex] = useState(1);
 
     async function fetchData() {
-        const response = await fetch("/phrases.json");
+        const response = await fetch(`https://crammer-backend.onrender.com/french/${index}`);
         const data = await response.json();
-        setPhrases(data.french);
+        setPhrases(data.question);
+    }
+
+    function handlePreviousClick() {
+        setIndex(index - 1);
+    }
+
+    function handleNextClick() {
+        setIndex(index + 1);
     }
 
     useEffect(() => {
         fetchData();
-    }, []);
-
-    function goToNextPhrase() {
-        setCurrentIndex((currentIndex + 1) % phrases.length);
-    }
-
-    function goToPreviousPhrase() {
-        setCurrentIndex((currentIndex - 1 + phrases.length) % phrases.length);
-    }
+    }, [index]);
 
     return (
         <div>
             <h1>French Page</h1>
-            {phrases.length > 0 && (
-                <Flashcard phrase={phrases[currentIndex]} />
-            )}
             <FlashcardNavigator
-                currentIndex={currentIndex}
-                phrases={phrases}
-                onPreviousClick={goToPreviousPhrase}
-                onNextClick={goToNextPhrase}
-            />
+                currentIndex={index}
+                onPreviousClick={handlePreviousClick}
+                onNextClick={handleNextClick}
+            >
+                {phrases.map((phrase) => (
+                    <Flashcard key={phrase.id} phrase={phrase} />
+                ))}
+            </FlashcardNavigator>
         </div>
     );
 }
