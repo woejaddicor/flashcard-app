@@ -9,26 +9,42 @@ export default function RegisterPage() {
     const [repeatPassword, setRepeatPassword] = useState('');
     const navigate = useNavigate();
 
-    function handleRegister() {
-        console.log(username, password)
-
+    async function handleRegister() {
         const passwordMatch = checkPasswordMatch();
-        console.log(passwordMatch)
-        //fetch request to db
 
-        //dummy username and password
-        let dummyUsername = "aa"
-        let dummyPassword = "aa"
-
-        if (username === dummyUsername && password === dummyPassword && passwordMatch == true) {
-            navigate("/dashboard");
+        if (passwordMatch == true) {
+            //fetch request to db   
+            const response = await registerUser({username, password});
+            console.log(response)
+     
+            navigate("/login");
         } else {
             alert("Login Failed!")
         }
     }
 
+    async function registerUser(reqBody) {
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(reqBody)
+        }
+
+        fetch("http://127.0.0.1:3000/user", options)
+        .then(data => data.json())
+            .then(response => {
+                console.log("data", response)
+                return response
+            })
+             .catch((err) => {
+                console.log(err)
+            })
+    }
+
     function checkPasswordMatch() {
-        console.log(password, repeatPassword)
         if (password === repeatPassword) {
             return true;
         }
@@ -37,13 +53,13 @@ export default function RegisterPage() {
 
     return(
         <>
-        <h1>Register</h1>
         <LoginForm username={username} setUsername={setUsername}
         password={password} setPassword={setPassword}/>
 
         <RegisterForm repeatPassword={repeatPassword} setRepeatPassword={setRepeatPassword}/>
 
         <LoginRegisterButton handleLogin={handleRegister}/>
+        <span className="message">Already have an account? <a className="link" href="/login">Log in</a>.</span>
         </>
     )
 }
