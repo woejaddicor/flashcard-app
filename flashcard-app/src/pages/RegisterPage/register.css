@@ -1,9 +1,10 @@
-* {
-    text-align: center;
-    background-color: #DDF0F8;
-    font-family: Arial, Helvetica, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Anton&family=Roboto&family=Montserrat&display=swap");
+
+
+.repeat-password {
+    margin: 0em;
 }
 
-.password-input {
-    background-color: gold;
+.login-form {
+    padding: 0em;
 }
