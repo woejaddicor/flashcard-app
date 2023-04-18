@@ -36,7 +36,7 @@ export default function NavBar({token}) {
                         { displayLoginLogout() }
                         <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
                         <Nav.Link className="nav-link" href="/dashboard">Dashboard</Nav.Link>
-                        <Nav.Link className="nav-link" href="/aboutus">About Us</Nav.Link>
+                        <Nav.Link className="nav-link" href="/about">About Us</Nav.Link>
                     </Container>
                 </Navbar>
             </header>
