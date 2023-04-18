@@ -5,6 +5,8 @@ import { NavBar } from './layouts'
 //import { useToken } from "./contexts";
 import useToken from './useToken';
 
+import './assets/app.css';
+
 function App() {
   //const {token, setToken} = useToken();
   //const [token, setToken] = useState(); //working
