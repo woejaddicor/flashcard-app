@@ -34,4 +34,7 @@
     background-color: #D9D9D9;
     border: none;
     border-radius: 5px;
+    font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0.5em 1em;
+    margin: 2em;
 }

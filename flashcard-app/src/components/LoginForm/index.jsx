@@ -25,10 +25,12 @@ export default function LoginForm({username, setUsername, password, setPassword}
         <div>
             <form className="login-form">
                 <div className="username">
+                    <label for="username">Username</label>
                     <input className="form-field" type="text" name="username" 
                     onChange={handleUsername} placeholder="Enter Username"/>
                 </div>
                 <div className="password">
+                    <label for="password">Password</label>
                     <input className="form-field" type="password" name="password" 
                     onChange={handlePassword} placeholder="Enter Password"/>
                 </div>
