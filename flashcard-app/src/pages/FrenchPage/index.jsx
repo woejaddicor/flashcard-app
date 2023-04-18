@@ -35,7 +35,10 @@ export default function FrenchPage() {
     }
 
     function handleWrongClick() {
-        setWrongAnswers((prevWrongAnswers) => [...prevWrongAnswers, index]);
+        setWrongAnswers((prevWrongAnswers) => [
+            ...prevWrongAnswers,
+            { question: question.map((phrase) => phrase.question).join(" "), answer: question.map((phrase) => phrase.answer).join(" ") }
+        ]);
         setClickedIndices((prevClickedIndices) => [...prevClickedIndices, index]);
     }
 
@@ -44,8 +47,7 @@ export default function FrenchPage() {
     }, [index]);
 
     if (quizFinished) {
-        const score = totalQuestions - wrongAnswers.length;
-        return <Score score={score} totalQuestions={totalQuestions} />;
+        return <Score score={totalQuestions - wrongAnswers.length} totalQuestions={totalQuestions} flaggedQuestions={wrongAnswers} />;
     }
 
     return (
@@ -61,7 +63,10 @@ export default function FrenchPage() {
                 {question.map((phrase) => (
                     <Flashcard key={phrase.id} phrase={phrase} />
                 ))}
-                <button onClick={handleWrongClick} disabled={clickedIndices.includes(index)}>
+                <button
+                    onClick={handleWrongClick}
+                    disabled={clickedIndices.includes(index)}
+                >
                     Wrong
                 </button>
             </FlashcardNavigator>
