@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react'
 import * as Pages from './pages'
 import { Routes, Route } from 'react-router-dom'
 import { NavBar } from './layouts'
-import { useToken } from "./contexts";
+//import { useToken } from "./contexts";
+import useToken from './useToken';
 
 function App() {
   //const {token, setToken} = useToken();
-  const [token, setToken] = useState();
+  //const [token, setToken] = useState(); //working
+  //const token = getToken(); //working2
+  const {token, setToken} = useToken();
 
   /*if(!token) {
     console.log("not token", token)
@@ -27,7 +30,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<NavBar/>}>
+      <Route path="/" element={<NavBar token={token}/>}>
         <Route index element={<Pages.HomePage/>}/>
         <Route path="/login" element={<Pages.LoginPage token={token} setToken={setToken}/>}/>
         <Route path="/register" element={<Pages.RegisterPage/>}/>
@@ -40,5 +43,15 @@ function App() {
     </Routes>
   )
 }
+
+/*function setToken(userToken) {
+  sessionStorage.setItem('token', JSON.stringify(userToken));
+}
+
+function getToken() {
+  const tokenString = sessionStorage.getItem('token');
+  const userToken = JSON.parse(tokenString);
+  return userToken?.token
+}*/
 
 export default App

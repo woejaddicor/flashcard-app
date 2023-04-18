@@ -53,7 +53,7 @@ export default function LoginPage({token, setToken}) {
             body: JSON.stringify(credentials)
         }
     
-        fetch("http://127.0.0.1:3000/auth", options)
+        fetch("http://127.0.0.1:3000/user", options)
             .then(data => data.json())
             .then(response => {
                 console.log("data", response)
