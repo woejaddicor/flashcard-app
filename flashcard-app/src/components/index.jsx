@@ -1,6 +1,5 @@
 //flashcard
 export { default as Flashcard } from './Flashcard'
-export { default as FlashcardPhrase } from './FlashcardPhrase'
 export { default as FlashcardNavigator } from './FlashcardNavigator'
 export { default as Score } from './Score'
 //login
