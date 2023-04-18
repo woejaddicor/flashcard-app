@@ -14,9 +14,9 @@ export default function HomePage() {
             <h1>Welcome to Crammer!</h1>
         </div>
         <div>
-            <p>Welcome to Crammer, the ultimate revision website designed to help you in your language learning process!</p>
+            <p className="about-text">Welcome to Crammer, the ultimate revision website designed to help you in your language learning process!</p>
             <Link to="/register"><button className="account-button">CREATE AN ACCOUNT</button></Link>
-            <h2>Learn</h2>
+            <h2 className="language-choice">Choose your language</h2>
         </div>
         <div className="buttons-container">
             <Link to="/french" className="language-links">

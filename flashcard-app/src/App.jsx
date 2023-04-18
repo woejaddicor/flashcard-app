@@ -37,7 +37,7 @@ function App() {
         <Route path="/login" element={<Pages.LoginPage token={token} setToken={setToken}/>}/>
         <Route path="/register" element={<Pages.RegisterPage/>}/>
         <Route path="/dashboard" element={<Pages.DashboardPage token={token} setToken={setToken}/>}/>
-        <Route path="/aboutus" element={<Pages.AboutUsPage/>}/>
+        <Route path="/about" element={<Pages.AboutUsPage/>}/>
         <Route path="/french" element={<Pages.FrenchPage/>}/>
         <Route path="/spanish" element={<Pages.SpanishPage/>}/>
         <Route path="*" element={<Pages.NotFound/>}/>
