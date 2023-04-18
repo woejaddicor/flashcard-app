@@ -8,7 +8,7 @@ export default function HomePage() {
     //localStorage.clear()
 
     return(
-        <>
+        <div className="home-page">
         <div className="page-banner">
             <img className="banner-image" src={banner} alt="banner image"/>
             <h1>Welcome to Crammer!</h1>
@@ -26,6 +26,6 @@ export default function HomePage() {
                Spanish 🇪🇸
             </Link>
         </div>
-        </>
+        </div>
     )
 }
