@@ -1,19 +1,11 @@
-export default function Score({ wrongAnswers }) {
+import React from "react";
+
+export default function Score({ score, totalQuestions, flaggedQuestions }) {
+    const percentage = ((score / totalQuestions) * 100).toFixed(2);
+
     return (
         <div>
-            <h1>Score</h1>
-            {wrongAnswers.length > 0 ? (
-                <div>
-                    <p>You got the following questions wrong:</p>
-                    <ul>
-                        {wrongAnswers.map((index) => (
-                            <li key={index}>Question {index}</li>
-                        ))}
-                    </ul>
-                </div>
-            ) : (
-                <p>Congratulations! You got all the questions right.</p>
-            )}
+            <h2> You Scored: {percentage}%</h2>
         </div>
     );
 }

@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { FlashcardNavigator, Flashcard, Score } from "../../components";
 
+const totalQuestions = 4;
+
 export default function FrenchPage() {
-    const [phrases, setPhrases] = useState([]);
+    const [question, setQuestion] = useState([]);
     const [index, setIndex] = useState(1);
-    const [isLastQuestion, setIsLastQuestion] = useState(false);
     const [quizFinished, setQuizFinished] = useState(false);
     const [wrongAnswers, setWrongAnswers] = useState([]);
     const [clickedIndices, setClickedIndices] = useState([]);
-    const totalQuestions = 15;
 
     async function fetchData() {
-        const response = await fetch(`https://crammer-backend.onrender.com/french/${index}`);
+        const response = await fetch(
+            `https://crammer-backend.onrender.com/french/${index}`
+        );
         const data = await response.json();
-        setPhrases(data.question);
-        setIsLastQuestion(index === totalQuestions);
+        setQuestion(data.question);
     }
 
     function handlePreviousClick() {
@@ -26,7 +27,6 @@ export default function FrenchPage() {
     function handleNextClick() {
         if (index < totalQuestions) {
             setIndex(index + 1);
-            setIsLastQuestion(index + 1 === totalQuestions);
         }
     }
 
@@ -44,7 +44,8 @@ export default function FrenchPage() {
     }, [index]);
 
     if (quizFinished) {
-        return <Score wrongAnswers={wrongAnswers} />;
+        const score = totalQuestions - wrongAnswers.length;
+        return <Score score={score} totalQuestions={totalQuestions} />;
     }
 
     return (
@@ -56,16 +57,14 @@ export default function FrenchPage() {
                 onNextClick={handleNextClick}
                 onFinishClick={handleFinishClick}
                 totalQuestions={totalQuestions}
-                disableNext={isLastQuestion}
             >
-                {phrases.map((phrase) => (
+                {question.map((phrase) => (
                     <Flashcard key={phrase.id} phrase={phrase} />
                 ))}
                 <button onClick={handleWrongClick} disabled={clickedIndices.includes(index)}>
                     Wrong
                 </button>
             </FlashcardNavigator>
-
         </div>
     );
 }
