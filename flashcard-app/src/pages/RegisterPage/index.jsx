@@ -53,13 +53,13 @@ export default function RegisterPage() {
 
     return(
         <>
-        <h1>Register</h1>
         <LoginForm username={username} setUsername={setUsername}
         password={password} setPassword={setPassword}/>
 
         <RegisterForm repeatPassword={repeatPassword} setRepeatPassword={setRepeatPassword}/>
 
         <LoginRegisterButton buttonText="Register" handleLogin={handleRegister}/>
+        <span className="message">Already have an account? <a className="link" href="/login">Log in</a>.</span>
         </>
     )
 }
