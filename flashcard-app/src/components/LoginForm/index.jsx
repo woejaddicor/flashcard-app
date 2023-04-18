@@ -13,11 +13,13 @@ export default function LoginForm({username, setUsername, password, setPassword}
         <div>
             <form className="login-form">
                 <div className="username">
-                    <input type="text" name="username" 
+                    <label className="label-text">Username</label><br></br>
+                    <input className="form-field" type="text" name="username" 
                     onChange={handleUsername} placeholder="Enter Username"/>
                 </div>
                 <div className="password">
-                    <input type="password" name="password" 
+                    <label className="label-text">Password</label><br></br>
+                    <input className="form-field" type="password" name="password" 
                     onChange={handlePassword} placeholder="Enter Password"/>
                 </div>
             </form>

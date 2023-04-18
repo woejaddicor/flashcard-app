@@ -5,6 +5,8 @@ import { NavBar } from './layouts'
 //import { useToken } from "./contexts";
 import useToken from './useToken';
 
+import './assets/app.css';
+
 function App() {
   //const {token, setToken} = useToken();
   //const [token, setToken] = useState(); //working
@@ -21,7 +23,7 @@ function App() {
         <Route path="/flashcardcreate" element={<Pages.FlashcardCreate token={token} setToken={setToken}/>}/>
         <Route path="/flashcardupdate" element={<Pages.FlashcardUpdate token={token} setToken={setToken}/>}/>
         <Route path="/flashcardview" element={<Pages.FlashcardView token={token} setToken={setToken}/>}/>
-        <Route path="/aboutus" element={<Pages.AboutUsPage/>}/>
+        <Route path="/about" element={<Pages.AboutUsPage/>}/>
         <Route path="/french" element={<Pages.FrenchPage/>}/>
         <Route path="/spanish" element={<Pages.SpanishPage/>}/>
         <Route path="*" element={<Pages.NotFound/>}/>

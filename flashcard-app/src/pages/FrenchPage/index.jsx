@@ -1,40 +1,62 @@
 import React, { useState, useEffect } from "react";
-import { FlashcardNavigator, Flashcard } from "../../components";
+import { FlashcardNavigator, Flashcard, Score } from "../../components";
 
 export default function FrenchPage() {
     const [phrases, setPhrases] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [index, setIndex] = useState(1);
+    const [isLastQuestion, setIsLastQuestion] = useState(false);
+    const [quizFinished, setQuizFinished] = useState(false); // Add state variable for quiz finished
+    const totalQuestions = 15;
 
     async function fetchData() {
-        const response = await fetch("/phrases.json");
+        const response = await fetch(`https://crammer-backend.onrender.com/french/${index}`);
         const data = await response.json();
-        setPhrases(data.french);
+        setPhrases(data.question);
+        setIsLastQuestion(index === totalQuestions);
+    }
+
+    function handlePreviousClick() {
+        if (index > 1) {
+            setIndex(index - 1);
+        }
+    }
+
+    function handleNextClick() {
+        if (index < totalQuestions) {
+            setIndex(index + 1);
+            setIsLastQuestion(index + 1 === totalQuestions);
+        }
+    }
+
+    function handleFinishClick() {
+        setQuizFinished(true);
     }
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [index]);
 
-    function goToNextPhrase() {
-        setCurrentIndex((currentIndex + 1) % phrases.length);
-    }
-
-    function goToPreviousPhrase() {
-        setCurrentIndex((currentIndex - 1 + phrases.length) % phrases.length);
+    if (quizFinished) {
+        return <Score />;
     }
 
     return (
         <div>
             <h1>French Page</h1>
-            {phrases.length > 0 && (
-                <Flashcard phrase={phrases[currentIndex]} />
-            )}
             <FlashcardNavigator
-                currentIndex={currentIndex}
-                phrases={phrases}
-                onPreviousClick={goToPreviousPhrase}
-                onNextClick={goToNextPhrase}
+                currentIndex={index}
+                onPreviousClick={handlePreviousClick}
+                onNextClick={handleNextClick}
+                onFinishClick={handleFinishClick}
+                totalQuestions={totalQuestions}
+                disableNext={isLastQuestion}
             />
+            {phrases.map((phrase) => (
+                <Flashcard key={phrase.id} phrase={phrase} />
+            ))}
         </div>
     );
 }
+
+
+

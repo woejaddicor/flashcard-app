@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginForm, RegisterForm, LoginRegisterButton } from "../../components";
+import './register.css'
 
 export default function RegisterPage() {
     const [username, setUsername] = useState('');
@@ -52,7 +53,7 @@ export default function RegisterPage() {
 
     return(
         <>
-        <h1>Register Page</h1>
+        <h1>Register</h1>
         <LoginForm username={username} setUsername={setUsername}
         password={password} setPassword={setPassword}/>
 
