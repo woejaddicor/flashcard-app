@@ -5,7 +5,6 @@ import LoginPage from "../LoginPage";
 const totalQuestions = 15;
 
 export default function FrenchPage({ token, setToken }) {
-
     const [question, setQuestion] = useState([]);
     const [index, setIndex] = useState(1);
     const [quizFinished, setQuizFinished] = useState(false);
@@ -13,25 +12,27 @@ export default function FrenchPage({ token, setToken }) {
     const [clickedIndices, setClickedIndices] = useState([]);
 
     // if (!token) {
-    //     return <LoginPage token={token} setToken={setToken} />
+    //     return <LoginPage token={token} setToken={setToken} />;
     // }
 
-    async function fetchData() {
-        const response = await fetch(`https://crammer-backend.onrender.com/french/${index}`);
-        const data = await response.json();
-        setQuestion(data.question);
-    }
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch(`https://crammer-backend.onrender.com/french/${index}`);
+            const data = await response.json();
+            setQuestion(data.question);
+        }
+        fetchData();
+    }, [index]);
+
 
     function handlePreviousClick() {
-        if (index > 1) {
-            setIndex(index - 1);
-        }
+        setIndex((prevIndex) => (prevIndex > 1 ? prevIndex - 1 : prevIndex));
     }
 
     function handleNextClick() {
-        if (index < totalQuestions) {
-            setIndex(index + 1);
-        }
+        setIndex((prevIndex) =>
+            prevIndex < totalQuestions ? prevIndex + 1 : prevIndex
+        );
     }
 
     function handleFinishClick() {
@@ -39,19 +40,25 @@ export default function FrenchPage({ token, setToken }) {
     }
 
     function handleWrongClick() {
+        const questionText = question.map((phrase) => phrase.question).join(" ");
+        const answerText = question.map((phrase) => phrase.answer).join(" ");
         setWrongAnswers((prevWrongAnswers) => [
             ...prevWrongAnswers,
-            { question: question.map((phrase) => phrase.question).join(" "), answer: question.map((phrase) => phrase.answer).join(" ") }
+            { question: questionText, answer: answerText },
         ]);
         setClickedIndices((prevClickedIndices) => [...prevClickedIndices, index]);
     }
 
-    useEffect(() => {
-        fetchData();
-    }, [index]);
+
 
     if (quizFinished) {
-        return <Score score={totalQuestions - wrongAnswers.length} totalQuestions={totalQuestions} flaggedQuestions={wrongAnswers} />;
+        return (
+            <Score
+                score={totalQuestions - wrongAnswers.length}
+                totalQuestions={totalQuestions}
+                flaggedQuestions={wrongAnswers}
+            />
+        );
     }
 
     return (
