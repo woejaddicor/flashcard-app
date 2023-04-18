@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { FlashcardNavigator, Flashcard, Score } from "../../components";
+import LoginPage from "../LoginPage";
 
 const totalQuestions = 4;
 
-export default function FrenchPage() {
+export default function FrenchPage({ token, setToken }) {
+
     const [question, setQuestion] = useState([]);
     const [index, setIndex] = useState(1);
     const [quizFinished, setQuizFinished] = useState(false);
     const [wrongAnswers, setWrongAnswers] = useState([]);
     const [clickedIndices, setClickedIndices] = useState([]);
+
+    // if (!token) {
+    //     return <LoginPage token={token} setToken={setToken} />
+    // }
 
     async function fetchData() {
         const response = await fetch(

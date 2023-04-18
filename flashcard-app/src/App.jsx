@@ -8,9 +8,6 @@ import useToken from './useToken';
 import './assets/app.css';
 
 function App() {
-  //const {token, setToken} = useToken();
-  //const [token, setToken] = useState(); //working
-  //const token = getToken(); //working2
   const {token, setToken} = useToken();
 
   return (
@@ -24,8 +21,8 @@ function App() {
         <Route path="/flashcardupdate" element={<Pages.FlashcardUpdate token={token} setToken={setToken}/>}/>
         <Route path="/flashcardview" element={<Pages.FlashcardView token={token} setToken={setToken}/>}/>
         <Route path="/about" element={<Pages.AboutUsPage/>}/>
-        <Route path="/french" element={<Pages.FrenchPage/>}/>
-        <Route path="/spanish" element={<Pages.SpanishPage/>}/>
+        <Route path="/french" element={<Pages.FrenchPage token={token} setToken={setToken}/>}/>
+        <Route path="/spanish" element={<Pages.SpanishPage token={token} setToken={setToken}/>}/>
         <Route path="*" element={<Pages.NotFound/>}/>
       </Route>
     </Routes>

@@ -58,7 +58,7 @@ export default function RegisterPage() {
 
         <RegisterForm repeatPassword={repeatPassword} setRepeatPassword={setRepeatPassword}/>
 
-        <LoginRegisterButton handleLogin={handleRegister}/>
+        <LoginRegisterButton buttonText="Register" handleLogin={handleRegister}/>
         <span className="message">Already have an account? <a className="link" href="/login">Log in</a>.</span>
         </>
     )
