@@ -1,0 +1,26 @@
+.accordion-container {
+    background-color: #EAF8BF;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .accordion {
+    background-color: #14293D;
+    border: 1px solid #1474cd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .accordion:hover {
+    color: #1474cd;
+  }
+  
+  .accordion-content {
+    display: inline-block;
+  }
+  
+  p {
+    background-color: greenyellow;
+  }
+  
