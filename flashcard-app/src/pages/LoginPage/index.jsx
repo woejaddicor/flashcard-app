@@ -6,9 +6,10 @@ import PropTypes from 'prop-types';
 
 let dataHolder;
 
-export default function LoginPage({token, setToken}) {
+export default function LoginPage({reroute = "/", token, setToken}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [userFound, setUserFound] = useState(false);
     const navigate = useNavigate();
 
     async function getUserCreds() {
@@ -20,18 +21,28 @@ export default function LoginPage({token, setToken}) {
             }
         }
         fetch(`http://127.0.0.1:3000/user/${username}`, options)
-            .then(data => data.json())
-            .then(response => {
-                //console.log("data", response)
-                return response
+            .then(data => {
+                console.log(data.ok)
+                if (data.ok) {
+                    console.log("true")
+                    data.json()
+                    const generateToken = async () => {
+                        console.log("ok")
+                        await getAuth({username, password});
+                    }
+                    generateToken()
+                } else {
+                    alert("User Credentials are Incorrect!");
+                }
             })
             .catch((err) => {
                 console.log(err)
+                alert(err)
             })
-        const generateToken = await getAuth({username, password});
     }
 
     async function getAuth(credentials) { 
+        console.log("ok")
         const options = {
             method: 'POST',
             headers: {
@@ -44,11 +55,13 @@ export default function LoginPage({token, setToken}) {
         fetch("http://127.0.0.1:3000/user/login", options)
             .then(data => data.json())
             .then(response => {
+                console.log("data", response)
                 setToken(response)
-                return response
+                navigate(reroute)
             })
             .catch((err) => {
                 console.log(err)
+                alert(err)
             })
     }
 
@@ -56,7 +69,7 @@ export default function LoginPage({token, setToken}) {
         <>
         <LoginForm username={username} setUsername={setUsername}
         password={password} setPassword={setPassword}/>
-        <LoginRegisterButton handleLogin={getUserCreds}/>
+        <LoginRegisterButton buttonText="Login" handleLogin={getUserCreds}/>
         <span className="message">Don’t have an account? <a className="link" href="/register">Sign up</a>.</span>
         </>
     )
