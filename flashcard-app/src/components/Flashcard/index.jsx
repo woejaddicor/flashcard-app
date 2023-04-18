@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 
 export default function Flashcard({ phrase }) {
-    const [showAnswer, setShowAnswer] = useState(false);
+    const [isAnswerShown, setIsAnswerShown] = useState(false);
 
-    function handleCardClick() {
-        setShowAnswer(!showAnswer);
-    }
+    const handleCardClick = () => setIsAnswerShown(!isAnswerShown);
 
     return (
         <div onClick={handleCardClick}>
-            {showAnswer ? <p>{phrase.answer}</p> : <p>{phrase.question}</p>}
+            <p>{isAnswerShown ? phrase.answer : phrase.question}</p>
         </div>
     );
 }
