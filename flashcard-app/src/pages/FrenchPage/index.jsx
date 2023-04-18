@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { FlashcardNavigator, Flashcard } from "../../components";
+import { FlashcardNavigator, Flashcard, Score } from "../../components";
 
 export default function FrenchPage() {
     const [phrases, setPhrases] = useState([]);
     const [index, setIndex] = useState(1);
     const [isLastQuestion, setIsLastQuestion] = useState(false);
+    const [quizFinished, setQuizFinished] = useState(false); // Add state variable for quiz finished
     const totalQuestions = 15;
 
     async function fetchData() {
@@ -28,12 +29,16 @@ export default function FrenchPage() {
     }
 
     function handleFinishClick() {
-        console.log("Quiz finished");
+        setQuizFinished(true);
     }
 
     useEffect(() => {
         fetchData();
     }, [index]);
+
+    if (quizFinished) {
+        return <Score />;
+    }
 
     return (
         <div>
@@ -52,5 +57,6 @@ export default function FrenchPage() {
         </div>
     );
 }
+
 
 
