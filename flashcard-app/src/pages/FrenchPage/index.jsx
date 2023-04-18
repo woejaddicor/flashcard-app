@@ -4,13 +4,14 @@ import { FlashcardNavigator, Flashcard } from "../../components";
 export default function FrenchPage() {
     const [phrases, setPhrases] = useState([]);
     const [index, setIndex] = useState(1);
+    const [isLastQuestion, setIsLastQuestion] = useState(false);
+    const totalQuestions = 15;
 
     async function fetchData() {
-        const response = await fetch(
-            `https://crammer-backend.onrender.com/french/${index}`
-        );
+        const response = await fetch(`https://crammer-backend.onrender.com/french/${index}`);
         const data = await response.json();
         setPhrases(data.question);
+        setIsLastQuestion(index === totalQuestions);
     }
 
     function handlePreviousClick() {
@@ -20,9 +21,14 @@ export default function FrenchPage() {
     }
 
     function handleNextClick() {
-        if (index < 15) {
+        if (index < totalQuestions) {
             setIndex(index + 1);
+            setIsLastQuestion(index + 1 === totalQuestions);
         }
+    }
+
+    function handleFinishClick() {
+        console.log("Quiz finished");
     }
 
     useEffect(() => {
@@ -36,12 +42,15 @@ export default function FrenchPage() {
                 currentIndex={index}
                 onPreviousClick={handlePreviousClick}
                 onNextClick={handleNextClick}
-                disableNext={index === 15} // disable next button if index is 15
-            >
-                {phrases.map((phrase) => (
-                    <Flashcard key={phrase.id} phrase={phrase} />
-                ))}
-            </FlashcardNavigator>
+                onFinishClick={handleFinishClick}
+                totalQuestions={totalQuestions}
+                disableNext={isLastQuestion}
+            />
+            {phrases.map((phrase) => (
+                <Flashcard key={phrase.id} phrase={phrase} />
+            ))}
         </div>
     );
 }
+
+
