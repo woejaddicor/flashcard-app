@@ -13,23 +13,6 @@ function App() {
   //const token = getToken(); //working2
   const {token, setToken} = useToken();
 
-  /*if(!token) {
-    console.log("not token", token)
-    return <Pages.LoginPage setToken={setToken}/>
-}*/
-
-  /*useEffect(() => {
-    console.log("token", token)
-    
-    function checkAuth() {
-    if(!token) {
-        console.log("not token", token)
-        return <Pages.LoginPage setToken={setToken}/>
-    }
-    }
-    checkAuth();
-}, [])*/
-
   return (
     <Routes>
       <Route path="/" element={<NavBar token={token}/>}>
@@ -37,6 +20,9 @@ function App() {
         <Route path="/login" element={<Pages.LoginPage token={token} setToken={setToken}/>}/>
         <Route path="/register" element={<Pages.RegisterPage/>}/>
         <Route path="/dashboard" element={<Pages.DashboardPage token={token} setToken={setToken}/>}/>
+        <Route path="/flashcardcreate" element={<Pages.FlashcardCreate token={token} setToken={setToken}/>}/>
+        <Route path="/flashcardupdate" element={<Pages.FlashcardUpdate token={token} setToken={setToken}/>}/>
+        <Route path="/flashcardview" element={<Pages.FlashcardView token={token} setToken={setToken}/>}/>
         <Route path="/about" element={<Pages.AboutUsPage/>}/>
         <Route path="/french" element={<Pages.FrenchPage/>}/>
         <Route path="/spanish" element={<Pages.SpanishPage/>}/>
@@ -45,15 +31,5 @@ function App() {
     </Routes>
   )
 }
-
-/*function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
-
-function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token
-}*/
 
 export default App
