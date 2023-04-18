@@ -18,6 +18,10 @@
     font-size: 120%;
 }
 
+.login-form {
+    padding: 4em 0em;
+}
+
 .log-reg-button {
     background-color: #ECA400;
     font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -27,7 +31,13 @@
     font-size: 130%;
     border-radius: 25px;
     padding: 0.3em 1.7em;
+    margin-bottom: 1em;
     border: none;
+}
+
+.log-reg-button:hover {
+    background-color: #006992;
+    color: #ECA400;
 }
 
 .form-field {
@@ -49,4 +59,10 @@
 .message {
     font-family: Montserrat;
     font-weight: bold;
+}
+
+.message a {
+    font-weight: none;
+    color: black;
+
 }

@@ -71,11 +71,10 @@ export default function LoginPage({token, setToken}) {
 
     return(
         <>
-        <h1>Login Page</h1>
         <LoginForm username={username} setUsername={setUsername}
         password={password} setPassword={setPassword}/>
         <LoginRegisterButton handleLogin={getToken}/>
-        <span className="message">Don’t have an account? <a href="/register">Sign up</a>.</span>
+        <span className="message">Don’t have an account? <a className="link" href="/register">Sign up</a>.</span>
         </>
     )
 }
