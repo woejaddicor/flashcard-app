@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useToken } from "../../contexts";
 import PropTypes from 'prop-types';
 
+import './login.css'
+
 let dataHolder;
 
 export default function LoginPage({token, setToken}) {
