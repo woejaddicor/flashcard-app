@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 
 export default function Flashcard({ phrase }) {
-  const [translationRevealed, setTranslationRevealed] = useState(false);
+    const [showAnswer, setShowAnswer] = useState(false);
 
-  function revealTranslation() {
-    setTranslationRevealed(!translationRevealed);
-  }
+    function handleCardClick() {
+        setShowAnswer(!showAnswer);
+    }
 
-  return (
-    <div>
-      <p onClick={revealTranslation}>
-        {translationRevealed ? phrase.translation : phrase.phrase}
-      </p>
-    </div>
-  );
+    return (
+        <div onClick={handleCardClick}>
+            {showAnswer ? <p>{phrase.answer}</p> : <p>{phrase.question}</p>}
+        </div>
+    );
 }
