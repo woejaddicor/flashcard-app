@@ -25,13 +25,13 @@
 .prev {
     position: absolute;
     bottom: 5%;
-    right: 5%;
+    left: 5%;
 }
 
 .nxt {
     position: absolute;
     bottom: 5%;
-    left: 5%;
+    right: 5%;
 }
 
 .flashcard-container {
@@ -51,5 +51,11 @@
     color:#ECA400;
     background-color: transparent;
     font-size: 250%;
-    margin: 5%;
+    margin: 30% 5%;
+}
+
+.wrong-btn {
+    position: absolute;
+    top: 5%;
+    right: 5%;
 }
