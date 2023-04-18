@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import banner from './My project-1.png'
+import banner from './gamified-language-learning-duolingo.webp'
 import './homepage.css'
 
 export default function HomePage() {
