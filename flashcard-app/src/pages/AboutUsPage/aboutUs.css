@@ -13,15 +13,22 @@
   .accordion {
     background-color: #006992;
     border: 1px solid #abd6ff;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 20px;
-    cursor: pointer;
     width: 100%;
     margin-bottom: 10px;
   }
   
   .accordion:hover {
     cursor: pointer;
+  }
+
+  .accordion-title {
+    background-color: #006992;
+  }
+
+  .accordion-title:hover {
+    color: #abd6ff
   }
   
   .accordion-content {
@@ -52,6 +59,27 @@
     .accordion-content {
       display: block;
       margin-top: 10px;
+      
     }
   }
-  
+
+h1 {
+    margin-top: 5%;
+    margin-bottom: 2%;
+    color: #006992;
+}
+
+.crammer-logo {
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+p {
+    background-color: white;
+    color: #006992;
+    font-size: 15px;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}

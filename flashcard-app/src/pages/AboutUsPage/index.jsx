@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './aboutUs.css'
+import crammerLogo from './crammer-logo.png'
 
 export default function AboutUsPage() {
   const [isAccordion1Open, setIsAccordion1Open] = useState(false);
@@ -29,41 +30,42 @@ export default function AboutUsPage() {
       <div className="accordion-container">
         <div className="grid-container">
           <div className="accordion" onClick={toggleAccordion1}>
-            <h2 style={{backgroundColor: "#006992"}}>Our Story</h2>
+            <h2 className="accordion-title">Our Story</h2>
             {isAccordion1Open && (
               <div className="accordion-content">
-                <p>Test</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
               </div>
             )}
           </div>
           <div className="accordion" onClick={toggleAccordion2}>
-            <h2 style={{backgroundColor: "#006992"}}>About This App</h2>
+            <h2 className="accordion-title">About This App</h2>
             {isAccordion2Open && (
               <div className="accordion-content">
-                <p>Test</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
               </div>
             )}
           </div>
         </div>
         <div className="grid-container">
           <div className="accordion" onClick={toggleAccordion3}>
-            <h2 style={{backgroundColor: "#006992"}}>Contact Us</h2>
+            <h2 className="accordion-title">Contact Us</h2>
             {isAccordion3Open && (
               <div className="accordion-content">
-                <p>Test</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
               </div>
             )}
           </div>
           <div className="accordion" onClick={toggleAccordion4}>
-            <h2 style={{backgroundColor: "#006992"}}>Fourth Item</h2>
+            <h2 className="accordion-title">Fourth Item</h2>
             {isAccordion4Open && (
               <div className="accordion-content">
-                <p>Test</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
               </div>
             )}
           </div>
         </div>
       </div>
+      <img className="crammer-logo" src={crammerLogo} alt="crammer logo"/>
     </div>
   )
 }
