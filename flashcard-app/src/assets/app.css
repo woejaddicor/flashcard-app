@@ -17,3 +17,21 @@
     font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 120%;
 }
+
+.log-reg-button {
+    background-color: #ECA400;
+    font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #EAF8BF;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 130%;
+    border-radius: 25px;
+    padding: 0.3em 1.7em;
+    border: none;
+}
+
+.form-field {
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 5px;
+}
