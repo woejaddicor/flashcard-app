@@ -1,28 +1,11 @@
 import React from "react";
 
-export default function FlashcardNavigator({
-    currentIndex,
-    onPreviousClick,
-    onNextClick,
-    onFinishClick,
-    disableNext,
-    totalQuestions,
-    children,
+export default function FlashcardNavigator({ currentIndex, onPreviousClick, onNextClick, totalQuestions, children, isLastQuestion,
 }) {
-    const isLastQuestion = currentIndex === totalQuestions;
-
-    const renderFinishButton = () =>
-        isLastQuestion && <button onClick={onFinishClick}>Finish</button>;
-
     return (
-        <div>
-            <button onClick={onPreviousClick} disabled={currentIndex === 1}>
-                Previous
-            </button>
-            <button onClick={onNextClick} disabled={disableNext}>
-                Next
-            </button>
-            {renderFinishButton()}
+        <div className="flashcard-navigation">
+            <button className="navigation-btn prev" onClick={onPreviousClick} disabled={currentIndex === 1}> Previous </button>
+            <button className="navigation-btn nxt" onClick={onNextClick} disabled={isLastQuestion}> Next </button>
             {children}
         </div>
     );

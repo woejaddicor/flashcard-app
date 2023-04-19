@@ -65,24 +65,32 @@ export default function FrenchPage({ token, setToken }) {
 
     return (
         <div>
-            <h1>French Page</h1>
+            <h1> Translate these phrases</h1>
             <FlashcardNavigator
                 currentIndex={index}
                 onPreviousClick={handlePreviousClick}
                 onNextClick={handleNextClick}
-                onFinishClick={handleFinishClick}
                 totalQuestions={totalQuestions}
+                isLastQuestion={index === totalQuestions}
             >
                 {question.map((phrase) => (
                     <Flashcard key={phrase.id} phrase={phrase} />
                 ))}
-                <button class="wrong-btn"
+                <button
+                    className="wrong-btn"
                     onClick={handleWrongClick}
                     disabled={clickedIndices.includes(index)}
                 >
                     Wrong
                 </button>
+                {index === totalQuestions && (
+                    <button className="finish-btn" onClick={handleFinishClick}>
+                        Finish
+                    </button>
+                )}
             </FlashcardNavigator>
+
+
         </div>
     );
 }
