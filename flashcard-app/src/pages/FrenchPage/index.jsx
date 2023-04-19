@@ -13,9 +13,9 @@ export default function FrenchPage({ token, setToken }) {
     const [wrongAnswers, setWrongAnswers] = useState([]);
     const [clickedIndices, setClickedIndices] = useState([]);
 
-    // if (!token) {
-    //     return <LoginPage token={token} setToken={setToken} />
-    // }
+    if (!token) {
+        return <LoginPage token={token} setToken={setToken} />
+    }
 
     async function fetchData() {
         const response = await fetch(
