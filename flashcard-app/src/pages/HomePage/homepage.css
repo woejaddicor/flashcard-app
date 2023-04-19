@@ -75,6 +75,7 @@
     border: 1px solid black;
     border-radius: 15px;
     width: 30%;
+    max-width: 200px;
     font-size: 200%;
     margin: 0em 2em 3em 0em;
     font-weight: bold;

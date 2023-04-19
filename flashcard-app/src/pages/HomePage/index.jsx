@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 
-import banner from './cropped-banner-img.png'
+import banner from './bigger-banner-img.jpg'
 
 import './homepage.css'
 
