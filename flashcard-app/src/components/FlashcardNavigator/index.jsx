@@ -1,5 +1,8 @@
 import React from "react";
 
+export default function FlashcardNavigator({ currentIndex, onPreviousClick, onNextClick, onFinishClick, disableNext, totalQuestions, children, }) {
+    const isLastQuestion = currentIndex === totalQuestions;
+
 export default function FlashcardNavigator({ currentIndex, onPreviousClick, onNextClick, totalQuestions, children, isLastQuestion,
 }) {
     return (
