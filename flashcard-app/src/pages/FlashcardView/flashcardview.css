@@ -1,0 +1,19 @@
+.flashcard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.flashcard {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.flashcard-question {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.flashcard-answer {
+  margin-top: 10px;
+}

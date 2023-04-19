@@ -2,38 +2,37 @@ import React, { useState, useEffect } from "react";
 import { FlashcardNavigator, Flashcard, Score } from "../../components";
 import LoginPage from "../LoginPage";
 
-const totalQuestions = 4;
+import './french.css';
+
+const totalQuestions = 15;
 
 export default function FrenchPage({ token, setToken }) {
-
     const [question, setQuestion] = useState([]);
     const [index, setIndex] = useState(1);
     const [quizFinished, setQuizFinished] = useState(false);
     const [wrongAnswers, setWrongAnswers] = useState([]);
     const [clickedIndices, setClickedIndices] = useState([]);
 
-    // if (!token) {
-    //     return <LoginPage token={token} setToken={setToken} />
-    // }
-
-    async function fetchData() {
-        const response = await fetch(
-            `https://crammer-backend.onrender.com/french/${index}`
-        );
-        const data = await response.json();
-        setQuestion(data.question);
+    if (!token) {
+        return <LoginPage token={token} setToken={setToken} />
     }
 
-    function handlePreviousClick() {
-        if (index > 1) {
-            setIndex(index - 1);
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch(`https://crammer-backend.onrender.com/french/${index}`);
+            const data = await response.json();
+            setQuestion(data.question);
         }
+        fetchData();
+    }, [index]);
+
+
+    function handlePreviousClick() {
+        setIndex((prevIndex) => (prevIndex > 1 ? prevIndex - 1 : prevIndex));
     }
 
     function handleNextClick() {
-        if (index < totalQuestions) {
-            setIndex(index + 1);
-        }
+        setIndex((prevIndex) => (prevIndex < totalQuestions ? prevIndex + 1 : prevIndex));
     }
 
     function handleFinishClick() {
@@ -41,41 +40,48 @@ export default function FrenchPage({ token, setToken }) {
     }
 
     function handleWrongClick() {
+        const questionText = question.map((phrase) => phrase.question).join(" ");
+        const answerText = question.map((phrase) => phrase.answer).join(" ");
         setWrongAnswers((prevWrongAnswers) => [
             ...prevWrongAnswers,
-            { question: question.map((phrase) => phrase.question).join(" "), answer: question.map((phrase) => phrase.answer).join(" ") }
+            { question: questionText, answer: answerText },
         ]);
         setClickedIndices((prevClickedIndices) => [...prevClickedIndices, index]);
     }
 
-    useEffect(() => {
-        fetchData();
-    }, [index]);
-
     if (quizFinished) {
-        return <Score score={totalQuestions - wrongAnswers.length} totalQuestions={totalQuestions} flaggedQuestions={wrongAnswers} />;
+        return (
+            <Score
+                score={totalQuestions - wrongAnswers.length}
+                totalQuestions={totalQuestions}
+                flaggedQuestions={wrongAnswers}
+            />
+        );
     }
 
     return (
         <div>
-            <h1>French Page</h1>
+            <h1> Translate the word</h1>
             <FlashcardNavigator
                 currentIndex={index}
                 onPreviousClick={handlePreviousClick}
                 onNextClick={handleNextClick}
-                onFinishClick={handleFinishClick}
                 totalQuestions={totalQuestions}
+                isLastQuestion={index === totalQuestions}
             >
                 {question.map((phrase) => (
                     <Flashcard key={phrase.id} phrase={phrase} />
                 ))}
-                <button
-                    onClick={handleWrongClick}
-                    disabled={clickedIndices.includes(index)}
-                >
-                    Wrong
-                </button>
+                <button className="wrong-btn" onClick={handleWrongClick} disabled={clickedIndices.includes(index)}>Wrong</button>
+
+                {index === totalQuestions && (
+                    <button className="finish-btn" onClick={handleFinishClick}>
+                        Finish
+                    </button>
+                )}
             </FlashcardNavigator>
+
+
         </div>
     );
 }
