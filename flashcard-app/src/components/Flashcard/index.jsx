@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 
 export default function Flashcard({ phrase }) {
-    const [isAnswerShown, setIsAnswerShown] = useState(false);
+    const [showAnswer, setShowAnswer] = useState(false);
 
-    const handleCardClick = () => setIsAnswerShown(!isAnswerShown);
+    function handleCardClick() {setShowAnswer(!showAnswer);}
 
     return (
-        <div onClick={handleCardClick}>
-            <p>{isAnswerShown ? phrase.answer : phrase.question}</p>
+        <div className="flashcard-container" onClick={handleCardClick}>
+            <div className={`card ${showAnswer ? "flipped" : ""}`}>
+                <div className="card-face card-face-front">
+                    <p className="quiz-text">How do you say: '{phrase.answer}'?</p>
+                </div>
+                <div className="card-face card-face-back">
+                    <p className="quiz-text">{phrase.question}</p>
+                </div>
+            </div>
         </div>
     );
 }

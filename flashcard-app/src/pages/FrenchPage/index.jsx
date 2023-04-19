@@ -32,9 +32,7 @@ export default function FrenchPage({ token, setToken }) {
     }
 
     function handleNextClick() {
-        setIndex((prevIndex) =>
-            prevIndex < totalQuestions ? prevIndex + 1 : prevIndex
-        );
+        setIndex((prevIndex) => (prevIndex < totalQuestions ? prevIndex + 1 : prevIndex));
     }
 
     function handleFinishClick() {
@@ -51,8 +49,6 @@ export default function FrenchPage({ token, setToken }) {
         setClickedIndices((prevClickedIndices) => [...prevClickedIndices, index]);
     }
 
-
-
     if (quizFinished) {
         return (
             <Score
@@ -65,24 +61,27 @@ export default function FrenchPage({ token, setToken }) {
 
     return (
         <div>
-            <h1>French Page</h1>
+            <h1> Translate the word</h1>
             <FlashcardNavigator
                 currentIndex={index}
                 onPreviousClick={handlePreviousClick}
                 onNextClick={handleNextClick}
-                onFinishClick={handleFinishClick}
                 totalQuestions={totalQuestions}
+                isLastQuestion={index === totalQuestions}
             >
                 {question.map((phrase) => (
                     <Flashcard key={phrase.id} phrase={phrase} />
                 ))}
-                <button class="wrong-btn"
-                    onClick={handleWrongClick}
-                    disabled={clickedIndices.includes(index)}
-                >
-                    Wrong
-                </button>
+                <button className="wrong-btn" onClick={handleWrongClick} disabled={clickedIndices.includes(index)}>Wrong</button>
+
+                {index === totalQuestions && (
+                    <button className="finish-btn" onClick={handleFinishClick}>
+                        Finish
+                    </button>
+                )}
             </FlashcardNavigator>
+
+
         </div>
     );
 }
