@@ -25,6 +25,8 @@ export default function HomePage() {
                 <Link to="/spanish" className="language-links">
                 Spanish<br></br>🇪🇸
                 </Link>
+                <Link to="/german" className="language-links">German<br></br>🇩🇪</Link>
+                <Link to="/italian" className="language-links">Italian<br></br>🇮🇹</Link>
             </div>
         </div>
     )
