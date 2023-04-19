@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald&family=Anton&family=Roboto&family=Montserrat&display=swap");
 
+* {
+    background-color: #DDF0F8;
+}
+
 .color-nav {
     background-color: #006992;
 }

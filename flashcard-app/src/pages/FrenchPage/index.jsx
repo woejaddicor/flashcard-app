@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FlashcardNavigator, Flashcard, Score } from "../../components";
 import LoginPage from "../LoginPage";
+import './french.css'
 
 const totalQuestions = 15;
 
@@ -74,7 +75,7 @@ export default function FrenchPage({ token, setToken }) {
                 {question.map((phrase) => (
                     <Flashcard key={phrase.id} phrase={phrase} />
                 ))}
-                <button
+                <button class="wrong-btn"
                     onClick={handleWrongClick}
                     disabled={clickedIndices.includes(index)}
                 >
