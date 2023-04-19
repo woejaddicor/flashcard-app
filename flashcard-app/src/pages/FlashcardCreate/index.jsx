@@ -6,9 +6,9 @@ export default function FlashcardCreate({token, setToken}) {
     const [wordText, setWordText] = useState('')
     const [answerText, setAnswerText] = useState('')
 
-    if(!token) {
-        return <LoginPage token={token} setToken={setToken}/>
-    }
+    // if(!token) {
+    //     return <LoginPage token={token} setToken={setToken}/>
+    // }
 
     const handleChange = (event) => {
         setSelectedOption(event.target.value);

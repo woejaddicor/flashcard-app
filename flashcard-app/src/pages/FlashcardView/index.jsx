@@ -5,7 +5,6 @@ import './flashcardview.css'
 export default function FlashcardView({ token, setToken }) {
   const [flashcards, setFlashcards] = useState([]);
   const [showCard, setShowCard] = useState({});
-  const [deletedCardId, setDeletedCardId] = useState('')
 
   if (!token) {
     return <LoginPage token={token} setToken={setToken} />;
@@ -45,7 +44,10 @@ export default function FlashcardView({ token, setToken }) {
       console.error(error);
     });
   }
-  
+ 
+  function handleCardClick(id) {
+    setShowCard({ ...showCard, [id]: !showCard[id] });
+  }
   
   
   return ( 
