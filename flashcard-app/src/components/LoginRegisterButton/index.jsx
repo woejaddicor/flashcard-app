@@ -6,7 +6,8 @@ export default function LoginRegisterButton({buttonText, handleLogin}) {
     return(
         <div>
             <button className="log-reg-button" type="submit"
-            onClick={handleLogin}>{buttonText}</button>
+            onClick={handleLogin} data-testid="log-reg-button">
+            {buttonText}</button>
         </div>
     )
 

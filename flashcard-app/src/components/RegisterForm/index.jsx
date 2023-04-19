@@ -11,8 +11,8 @@ export default function RegisterForm({repeatPassword, setRepeatPassword}) {
                 <div className="repeat-password">
                     <label className="label-text">Repeat password</label><br></br>
                     <input className="form-field" type="password" name="repeat-password" 
-                    onChange={handleRepeatPassword}
-                    placeholder="Repeat Password"/>
+                    onChange={handleRepeatPassword} placeholder="Repeat Password"
+                    data-testid="repeat-password"/>
                 </div>
             </form>
         </div>
