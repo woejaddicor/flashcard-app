@@ -3,7 +3,7 @@ import React, { useState, useCallback } from "react";
 export default function Score({ score, totalQuestions, flaggedQuestions }) {
     const [clickedQuestions, setClickedQuestions] = useState([]);
 
-    const percentage = ((score / totalQuestions) * 100).toFixed(2);
+    const percentage = (parseInt((score / totalQuestions) * 100));
 
     const handleQuestionClick = useCallback(
         (index) => {

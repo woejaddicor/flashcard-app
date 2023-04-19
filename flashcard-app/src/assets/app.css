@@ -23,3 +23,20 @@
     font-size: 120%;
     color: #DDF0F8;
 }
+
+.login-out-btn {
+    background-color: #ECA400;
+    font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #EAF8BF;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 130%;
+    border-radius: 25px;
+    padding: 0.3em 1.7em;
+    border: none;
+}
+
+.login-out-btn:hover {
+    background-color: #006992;
+    color: #ECA400;
+}

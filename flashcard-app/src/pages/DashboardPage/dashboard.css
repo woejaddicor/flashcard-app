@@ -9,7 +9,7 @@
 
 .dashboard-container {
     position: relative;
-    height: 50vh;
+    height: 60vh;
 }
 
 .link-button {
@@ -59,7 +59,7 @@
     width: 30%;
     max-width: 200px;
     font-size: 200%;
-    margin: 0em 2em 3em 0em;
+    margin: 2em 2em 0em 3em;
     font-weight: bold;
     align-self: center;
 }

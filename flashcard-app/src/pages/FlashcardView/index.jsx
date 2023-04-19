@@ -55,9 +55,9 @@ export default function FlashcardView({ token, setToken }) {
       {flashcards && Array.isArray(flashcards) &&
         flashcards.map((flashcard) => (
           <div className="flashcard" key={flashcard.id}>
-              {showCard[flashcard.id] ? <p className="flashcard-answer">{flashcard.answer}</p> : <p className="flashcard-question">{flashcard.word_phrase}</p>}
-              <button onClick={() => handleCardClick(flashcard.id)}>Reveal Answer</button>
-              <button onClick={() => deleteFlashcard(flashcard.id, flashcard.type)}>Delete</button>
+              {showCard[flashcard.id] ? <p className="flashcard-answer card-text">{flashcard.answer}</p> : <p className="flashcard-question card-text">{flashcard.word_phrase}</p>}
+              <button className="view-flashcard-btn" onClick={() => handleCardClick(flashcard.id)}>Reveal Answer</button>
+              <button className="view-flashcard-btn" onClick={() => deleteFlashcard(flashcard.id, flashcard.type)}>Delete</button>
           </div>
         ))}
     </div>

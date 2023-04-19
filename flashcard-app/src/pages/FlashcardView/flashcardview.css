@@ -7,13 +7,33 @@
 .flashcard {
   border: 1px solid #ccc;
   padding: 20px;
+  height: 250px;
+  width: auto;
+  background-color: #006992;
+  border-radius: 15px;
 }
 
-.flashcard-question {
+.view-flashcard-btn {
+  background-color: #ECA400;
+  font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #EAF8BF;
+  text-transform: uppercase;
   font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 130%;
+  border-radius: 25px;
+  padding: 0.3em 1.7em;
+  margin-bottom: 1em;
+  border: none;
 }
 
-.flashcard-answer {
-  margin-top: 10px;
+.view-flashcard-btn:hover {
+  background-color: #006992;
+  color: #ECA400;
+}
+
+.card-text {
+  font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #ECA400;
+  background-color: transparent;
+  font-size: 300%;
 }
