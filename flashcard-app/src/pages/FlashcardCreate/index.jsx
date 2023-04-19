@@ -41,6 +41,8 @@ export default function FlashcardCreate({token, setToken}) {
         })
         .then(response => response.json())
         .then(setNewQuestionSubmitted(true))
+        .then(setWordText(''))
+        .then(setAnswerText(''))
         .then(data => console.log(data))
         .catch(error => console.error(error));
     }
