@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+
 import banner from './cropped-banner-img.png'
 
 import './homepage.css'
