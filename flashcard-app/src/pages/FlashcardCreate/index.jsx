@@ -60,7 +60,7 @@ export default function FlashcardCreate({token, setToken}) {
                 <h3 className="page-subtitles">Answer</h3>
                 <input  className="input-boxes" type="text" name="answers" placeholder="Example: Ola" value={answerText} onChange={handleAnswerChange} required/>
                 <br></br>
-                <button className="submit-button" onClick={handleSubmit} type="submit">Create Flashcard</button>
+                <button className="submit-button" type="submit">Create Flashcard</button>
             </form>
             <button className="submit-button" onClick={() => {location.href="/dashboard"}}>
                 Back to Dashboard</button>
@@ -68,4 +68,3 @@ export default function FlashcardCreate({token, setToken}) {
         </div>
     )
 }
-
