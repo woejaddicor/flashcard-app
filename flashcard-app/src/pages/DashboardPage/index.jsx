@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 export default function DashboardPage({ token, setToken }) {
 
-    if(!token) {
-        return <LoginPage token={token} setToken={setToken}/>
-    }
+    // if(!token) {
+    //     return <LoginPage token={token} setToken={setToken}/>
+    // }
 
     return (
         <div>
