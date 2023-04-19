@@ -33,7 +33,7 @@ export default function RegisterPage() {
             body: JSON.stringify(reqBody)
         }
 
-        fetch("http://127.0.0.1:3000/user", options)
+        fetch("https://crammer-backend.onrender.com/user", options)
         .then(data => data.json())
             .then(response => {
                 console.log("data", response)
