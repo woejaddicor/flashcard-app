@@ -32,9 +32,7 @@ export default function FrenchPage({ token, setToken }) {
     }
 
     function handleNextClick() {
-        setIndex((prevIndex) =>
-            prevIndex < totalQuestions ? prevIndex + 1 : prevIndex
-        );
+        setIndex((prevIndex) => (prevIndex < totalQuestions ? prevIndex + 1 : prevIndex));
     }
 
     function handleFinishClick() {
@@ -51,8 +49,6 @@ export default function FrenchPage({ token, setToken }) {
         setClickedIndices((prevClickedIndices) => [...prevClickedIndices, index]);
     }
 
-
-
     if (quizFinished) {
         return (
             <Score
@@ -65,7 +61,7 @@ export default function FrenchPage({ token, setToken }) {
 
     return (
         <div>
-            <h1> Translate these phrases</h1>
+            <h1> Translate the word</h1>
             <FlashcardNavigator
                 currentIndex={index}
                 onPreviousClick={handlePreviousClick}
