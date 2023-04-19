@@ -23,12 +23,19 @@ describe('Login Page', () => {
   });
 
   it('renders username input with text', () => {
-    const usernameInput = screen.getByRole('input', { name: "username" });
-    expect(usernameInput).toHaveAttribute('placeholder', 'Enter Username');
+    const inputs = screen.getByTestId('username-input')
+    expect(inputs).toBeInTheDocument();
+    expect(inputs).toHaveAttribute('placeholder', 'Enter Username');
   });
 
   it('renders password input with text', () => {
-    const frenchButton = screen.getByRole('input', { name: "password" });
-    expect(frenchButton).toHaveAttribute('placeholder', 'Enter Password');
+    const inputs = screen.getByTestId('password-input')
+    expect(inputs).toBeInTheDocument();
+    expect(inputs).toHaveAttribute('placeholder', 'Enter Password');
+  });
+
+  it('renders button that has text Login', () => {
+    const button = screen.getByRole('button', { name: "Login" });
+    expect(button).toBeInTheDocument();
   });
 });
