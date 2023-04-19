@@ -20,9 +20,19 @@ export default function NavBar({token}) {
 
     function displayLoginLogout() {
         if(!token) {
-            return <Nav.Link href="/login">Login</Nav.Link>
+            return <Nav.Link className="login-out-btn" href="/login">Login</Nav.Link>
         } else {
-            return <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+            return <Nav.Link className="login-out-btn" onClick={handleLogout}>Logout</Nav.Link>
+        }
+    }
+
+    function displayRegisterOption() {
+        if (!token) {
+            return <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
+        }
+
+        else {
+            return
         }
     }
 
@@ -33,11 +43,10 @@ export default function NavBar({token}) {
                     <Container className="color-nav" >
                         <Navbar.Brand className="nav-logo" href="/"><img src={logo} 
                         style={logoStyle}/></Navbar.Brand>
-                        <Nav.Link className="nav-link" href="/">Home</Nav.Link>
-                        { displayLoginLogout() }
-                        <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
-                        <Nav.Link className="nav-link" href="/dashboard">Dashboard</Nav.Link>
                         <Nav.Link className="nav-link" href="/about">About Us</Nav.Link>
+                        <Nav.Link className="nav-link" href="/dashboard">Dashboard</Nav.Link>
+                        { displayRegisterOption() }
+                        { displayLoginLogout() }
                     </Container>
                 </Navbar>
             </header>
