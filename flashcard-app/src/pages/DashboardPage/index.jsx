@@ -2,21 +2,25 @@ import React, { useEffect } from "react";
 import LoginPage from "../LoginPage";
 import { Link } from "react-router-dom";
 
+import './dashboard.css'
+
 export default function DashboardPage({ token, setToken }) {
 
-    // if(!token) {
-    //     return <LoginPage token={token} setToken={setToken}/>
-    // }
+    if(!token) {
+        return <LoginPage token={token} setToken={setToken}/>
+    }
 
     return (
-        <div>
-            <h1>Dashboard Page</h1>
-            <div>
-                <Link to="/flashcardcreate">Create Flashcard</Link>
-                <Link to="/flashcardview">View All Flashcards</Link>
+        <div className="dashboard-container">
+            <h1 className="dashboard-title">Dashboard</h1>
+            <div className="cards-container">
+                <Link className="language-card" to="/french">French<br></br>🇫🇷</Link>
+                <Link className="language-card" to="/spanish">Spanish<br></br>🇪🇸</Link>
             </div>
-            <Link to="/french">French</Link>
-            <Link to="/spanish">Spanish</Link>
+            <div>
+                <Link className="link-button create" to="/flashcardcreate">Create Flashcard</Link>
+                <Link className="link-button view" to="/flashcardview">View All Flashcards</Link>
+            </div>
         </div>
     );
 }
