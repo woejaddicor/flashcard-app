@@ -72,13 +72,8 @@ export default function FrenchPage({ token, setToken }) {
                 {question.map((phrase) => (
                     <Flashcard key={phrase.id} phrase={phrase} />
                 ))}
-                <button
-                    className="wrong-btn"
-                    onClick={handleWrongClick}
-                    disabled={clickedIndices.includes(index)}
-                >
-                    Wrong
-                </button>
+                <button className="wrong-btn" onClick={handleWrongClick} disabled={clickedIndices.includes(index)}>Wrong</button>
+
                 {index === totalQuestions && (
                     <button className="finish-btn" onClick={handleFinishClick}>
                         Finish
