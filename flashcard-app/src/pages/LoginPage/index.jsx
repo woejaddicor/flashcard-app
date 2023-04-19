@@ -22,7 +22,7 @@ export default function LoginPage({reroute = "/", token, setToken}) {
                 'Accept': 'application/json'
             }
         }
-        fetch(`http://127.0.0.1:3000/user/${username}`, options)
+        fetch(`https://crammer-backend.onrender.com/user/${username}`, options)
             .then(data => {
                 console.log(data.ok)
                 if (data.ok) {
@@ -54,7 +54,7 @@ export default function LoginPage({reroute = "/", token, setToken}) {
             body: JSON.stringify(credentials)
         }
         
-        fetch("http://127.0.0.1:3000/user/login", options)
+        fetch("https://crammer-backend.onrender.com/user/login", options)
             .then(data => data.json())
             .then(response => {
                 console.log("data", response)
