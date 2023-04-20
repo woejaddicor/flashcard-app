@@ -6,13 +6,13 @@ import userEvent from "@testing-library/user-event";
 import matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
 
-import DashboardPage from '.';
+import FlashcardView from '.';
 
 describe('App', () => {
     beforeEach(() => {
       render(
         <MemoryRouter>
-          <DashboardPage testing={true} />
+          <FlashcardView testing={true} />
         </MemoryRouter>
       );
     });
@@ -21,8 +21,9 @@ describe('App', () => {
       cleanup();
     });
   
-    it('renders Dashboard Page text', () => {
-        const header = screen.getByText(/dashboard/i);
+    it('renders text for revealing answer', () => {
+        const header = screen.getByText(/view all flashcards/i);
         expect(header).toBeInTheDocument();
-      });
-  });
+    });
+});
+
