@@ -48,13 +48,15 @@ export default function FlashcardView({ token, setToken }) {
   function handleCardClick(id) {
     setShowCard({ ...showCard, [id]: !showCard[id] });
   }
-  
+ 
+  console.log(flashcards)
   
   return ( 
     <div className="flashcard-grid">
       {flashcards && Array.isArray(flashcards) &&
         flashcards.map((flashcard) => (
           <div className="flashcard" key={flashcard.id}>
+              <p className="language-type">{flashcard.type}</p>
               {showCard[flashcard.id] ? <p className="flashcard-answer card-text">{flashcard.answer}</p> : <p className="flashcard-question card-text">{flashcard.word_phrase}</p>}
               <button className="view-flashcard-btn" onClick={() => handleCardClick(flashcard.id)}>Reveal Answer</button>
               <button className="view-flashcard-btn" onClick={() => deleteFlashcard(flashcard.id, flashcard.type)}>Delete</button>
