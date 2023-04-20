@@ -25,6 +25,8 @@ export default function GermanPage({ token, setToken }) {
 
             setTotalQuestions(maxQuestion.questions.length);
             setQuestion(data.question);
+
+            console.log()
             
         }
         fetchData();
@@ -65,7 +67,7 @@ export default function GermanPage({ token, setToken }) {
 
     return (
         <div>
-            <h1> Translate the word</h1>
+            <h1>Translate the word</h1>
             <FlashcardNavigator
                 currentIndex={index}
                 onPreviousClick={handlePreviousClick}
@@ -77,15 +79,18 @@ export default function GermanPage({ token, setToken }) {
                     <Flashcard key={phrase.id} phrase={phrase} />
                 ))}
                 <button className="wrong-btn" onClick={handleWrongClick} disabled={clickedIndices.includes(index)}>Wrong</button>
-
+    
                 {index === totalQuestions && (
                     <button className="finish-btn" onClick={handleFinishClick}>
                         Finish
                     </button>
                 )}
             </FlashcardNavigator>
-
-
+            
+            <div className="question-count">
+                Word {index} of {totalQuestions}
+            </div>
         </div>
     );
+    
 }
