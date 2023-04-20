@@ -6,24 +6,6 @@ import Button from 'react-bootstrap/button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 
-// const popover = (
-//   <Popover id="popover-basic">
-//     <Popover.Header as="h3">Popover right</Popover.Header>
-//     <Popover.Body>
-//       And here's some <strong>amazing</strong> content. It's very engaging.
-//       right?
-//     </Popover.Body>
-//   </Popover>
-// );
-
-// const Example = () => (
-//   <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-//     <Button variant="success">Click me to see</Button>
-//   </OverlayTrigger>
-// );
-
-// render(<Example />);
-
 export default function FrenchPage({ token, setToken }) {
     const [question, setQuestion] = useState([]);
     const [index, setIndex] = useState(1);
@@ -37,18 +19,17 @@ export default function FrenchPage({ token, setToken }) {
     }
 
   const popover = (
-  <Popover id="popover-basic">
-    <Popover.Header as="h3">Popover right</Popover.Header>
+  <Popover id="popover-basic" >
+    <Popover.Header as="h3">How to play:</Popover.Header>
     <Popover.Body>
-      And here's some <strong>amazing</strong> content. It's very engaging.
-      right?
+       To play the game <strong style={{color: "#ECA400"}}>hover over the blue card with the English text</strong>. When you think you know the correct translation, click the card to flip it over and see. <strong style={{color: "#ECA400"}}>Click either the 'right' or 'wrong' button depending on the outcome</strong> and your score will total up at the end.
     </Popover.Body>
   </Popover>
 );
 
-const Example = () => (
-  <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-    <Button variant="success">Click me to see</Button>
+const Instructions = () => (
+  <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+    <Button className="instructions-button" variant="success">Instructions</Button>
   </OverlayTrigger>
 );
 
@@ -101,7 +82,7 @@ const Example = () => (
 
     return (
         <div>
-            <Example />
+            <Instructions />
             <h1 className="french-page-title"> Translate the word</h1>
             <FlashcardNavigator
                 currentIndex={index}
