@@ -84,6 +84,10 @@ export default function FrenchPage({ testing=false, token, setToken }) {
                 )}
             </FlashcardNavigator>
 
+            <div className="question-count">
+                Question {index} of {totalQuestions}
+            </div>
+
 
         </div>
     );
