@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Anton&family=Roboto&family=Montserrat&display=swap");
+
+.not-found-text {
+    font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #ECA400;
+    font-size: 300%;
+    padding: 4em 0em;
+    font-weight: bold;
+}
