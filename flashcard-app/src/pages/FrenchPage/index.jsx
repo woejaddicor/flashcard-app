@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { FlashcardNavigator, Flashcard, Score } from "../../components";
 import LoginPage from "../LoginPage";
 import '../../assets/flashcardStyles.css';
+import Button from 'react-bootstrap/button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
 
 export default function FrenchPage({ testing=false, token, setToken }) {
     const [question, setQuestion] = useState([]);
@@ -14,6 +17,21 @@ export default function FrenchPage({ testing=false, token, setToken }) {
     if (!token && testing == false) {
         return <LoginPage token={token} setToken={setToken} />
     }
+
+  const popover = (
+  <Popover id="popover-basic" >
+    <Popover.Header as="h3">How to play:</Popover.Header>
+    <Popover.Body>
+       To play the game <strong style={{color: "#ECA400"}}>hover over the blue card with the English text</strong>. When you think you know the correct translation, click the card to flip it over and see. <strong style={{color: "#ECA400"}}>Click either the 'right' or 'wrong' button depending on the outcome</strong> and your score will total up at the end.
+    </Popover.Body>
+  </Popover>
+);
+
+const Instructions = () => (
+  <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+    <Button className="instructions-button" variant="success">Instructions</Button>
+  </OverlayTrigger>
+);
 
     useEffect(() => {
         async function fetchData() {
@@ -64,7 +82,8 @@ export default function FrenchPage({ testing=false, token, setToken }) {
 
     return (
         <div>
-            <h1 className="french-page-title">Translate the word</h1>
+            <Instructions />
+            <h1 className="french-page-title"> Translate the word</h1>
             <FlashcardNavigator
                 currentIndex={index}
                 onPreviousClick={handlePreviousClick}
@@ -83,12 +102,7 @@ export default function FrenchPage({ testing=false, token, setToken }) {
                     </button>
                 )}
             </FlashcardNavigator>
-
-            <div className="question-count">
-                Question {index} of {totalQuestions}
-            </div>
-
-
+            
         </div>
     );
 }

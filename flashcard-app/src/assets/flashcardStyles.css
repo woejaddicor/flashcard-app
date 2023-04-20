@@ -200,3 +200,21 @@
     color: #001D4A;
     padding-bottom: 1em;
 }
+
+.instructions-button {
+    background-color: #ECA400;
+    margin-top: 10px;
+    font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #EAF8BF;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 130%;
+    border-radius: 25px;
+    padding: 0.3em 1.7em;
+    border: none;
+    position: absolute;
+    top: 1;
+    left: 0;
+    margin-left: 10px;
+  }
+  
