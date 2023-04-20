@@ -6,13 +6,13 @@ import userEvent from "@testing-library/user-event";
 import matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
 
-import FrenchPage from '.';
+import SpanishPage from '.';
 
 describe('App', () => {
     beforeEach(() => {
       render(
         <MemoryRouter>
-          <FrenchPage testing={true} />
+          <SpanishPage testing={true} />
         </MemoryRouter>
       );
     });
@@ -21,7 +21,7 @@ describe('App', () => {
       cleanup();
     });
   
-    it('renders French Page text', () => {
+    it('renders Spanish Page text', () => {
         const header = screen.getByText(/translate the word/i);
         expect(header).toBeInTheDocument();
     });

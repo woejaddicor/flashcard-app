@@ -3,7 +3,7 @@ import { FlashcardNavigator, Flashcard, Score } from "../../components";
 import LoginPage from "../LoginPage";
 import '../../assets/flashcardStyles.css';
 
-export default function GermanPage({ token, setToken }) {
+export default function GermanPage({ testing=false, token, setToken }) {
     const [question, setQuestion] = useState([]);
     const [index, setIndex] = useState(1);
     const [quizFinished, setQuizFinished] = useState(false);
@@ -11,7 +11,7 @@ export default function GermanPage({ token, setToken }) {
     const [clickedIndices, setClickedIndices] = useState([]);
     const [totalQuestions, setTotalQuestions] = useState();
 
-    if (!token) {
+    if (!token && testing == false) {
         return <LoginPage token={token} setToken={setToken} />
     }
 
