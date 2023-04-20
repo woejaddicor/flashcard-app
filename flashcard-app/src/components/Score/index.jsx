@@ -35,8 +35,8 @@ export default function Score({ score, totalQuestions, flaggedQuestions }) {
 
     return (
         <div>
-            <h2>Score: {percentage}%</h2>
-            <h3>Flagged Questions:</h3>
+            <h2 className="score-page-title">Score: {percentage}%</h2>
+            <h3 className="score-page-subtext">Flagged Questions:</h3>
             <div className="flagged-questions-container">
                 {flaggedQuestions.map(renderQuestion)}
             </div>

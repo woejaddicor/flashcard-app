@@ -60,7 +60,7 @@ export default function FrenchPage({ token, setToken }) {
 
     return (
         <div>
-            <h1> Translate the word</h1>
+            <h1 className="french-page-title"> Translate the word</h1>
             <FlashcardNavigator
                 currentIndex={index}
                 onPreviousClick={handlePreviousClick}
