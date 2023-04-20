@@ -3,11 +3,11 @@ import LoginPage from "../LoginPage";
 
 export default function SpanishPage({ token, setToken }) {
 
-    if(!token) {
-        return <LoginPage token={token} setToken={setToken}/>
+    if (!token) {
+        return <LoginPage token={token} setToken={setToken} />
     }
 
-    return(
+    return (
         <div>
             <h1>Spanish Page</h1>
         </div>
