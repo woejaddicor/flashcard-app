@@ -52,17 +52,19 @@ export default function FlashcardView({testing=false, token, setToken }) {
   console.log(flashcards)
   
   return ( 
-    <div className="flashcard-grid">
-      <h1>View all Flashcards</h1>
-      {flashcards && Array.isArray(flashcards) &&
-        flashcards.map((flashcard) => (
-          <div className="flashcard" key={flashcard.id}>
-              <p className="language-type">{flashcard.type}</p>
-              {showCard[flashcard.id] ? <p className="flashcard-answer card-text">{flashcard.answer}</p> : <p className="flashcard-question card-text">{flashcard.word_phrase}</p>}
-              <button className="view-flashcard-btn" onClick={() => handleCardClick(flashcard.id)}>Reveal Answer</button>
-              <button className="view-flashcard-btn" onClick={() => deleteFlashcard(flashcard.id, flashcard.type)}>Delete</button>
-          </div>
-        ))}
-    </div>
+    <>
+      <h1 className="french-page-title">My Flashcards</h1>
+      <div className="flashcard-grid">
+        {flashcards && Array.isArray(flashcards) &&
+          flashcards.map((flashcard) => (
+            <div className="flashcard" key={flashcard.id}>
+                <p className="language-type">{flashcard.type}</p>
+                {showCard[flashcard.id] ? <p className="flashcard-answer card-text">{flashcard.answer}</p> : <p className="flashcard-question card-text">{flashcard.word_phrase}</p>}
+                <button className="view-flashcard-btn" onClick={() => handleCardClick(flashcard.id)}>Reveal Answer</button>
+                <button className="view-flashcard-btn" onClick={() => deleteFlashcard(flashcard.id, flashcard.type)}>Delete</button>
+            </div>
+          ))}
+      </div>
+    </>
   );
 }
