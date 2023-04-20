@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 
-export default function FrenchPage({ testing=false, token, setToken }) {
+export default function FrenchPage({ testing = false, token, setToken }) {
     const [question, setQuestion] = useState([]);
     const [index, setIndex] = useState(1);
     const [quizFinished, setQuizFinished] = useState(false);
@@ -83,29 +83,34 @@ export default function FrenchPage({ testing=false, token, setToken }) {
     return (
         <div>
             <Instructions />
-            <h1 className="french-page-title">Translate the word</h1>
-            <FlashcardNavigator
-                currentIndex={index}
-                onPreviousClick={handlePreviousClick}
-                onNextClick={handleNextClick}
-                totalQuestions={totalQuestions}
-                isLastQuestion={index === totalQuestions}
-            >
+            <div className="flashcard-app">
+                <h1 className="french-page-title">Translate the word</h1>
                 {question.map((phrase) => (
                     <Flashcard key={phrase.id} phrase={phrase} />
                 ))}
 
                 <button className="wrong-btn" onClick={handleWrongClick} disabled={clickedIndices.includes(index)}>Review flashcard</button>
-            </FlashcardNavigator>
+                <div className="question-count">
+                    Word {index} of {totalQuestions}
 
-            <div className="question-count">
-                Word {index} of {totalQuestions}
+
+
+                </div>
 
                 {index === totalQuestions && (
                     <button className="finish-btn" onClick={handleFinishClick}>
                         Finish
                     </button>
                 )}
+
+                <FlashcardNavigator
+                    currentIndex={index}
+                    onPreviousClick={handlePreviousClick}
+                    onNextClick={handleNextClick}
+                    totalQuestions={totalQuestions}
+                    isLastQuestion={index === totalQuestions}
+                >
+                </FlashcardNavigator>
 
             </div>
         </div>
