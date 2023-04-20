@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import LoginPage from "../LoginPage";
 import './flashcardCreate.css'
 
-export default function FlashcardCreate({token, setToken}) {
+export default function FlashcardCreate({testing=false, token, setToken}) {
     const [selectedOption, setSelectedOption] = useState('')
     const [wordText, setWordText] = useState('')
     const [answerText, setAnswerText] = useState('')
     const [newQuestionSubmitted, setNewQuestionSubmitted] = useState(false)
 
-    if(!token) {
+    if(!token && testing == false) {
         return <LoginPage token={token} setToken={setToken}/>
     }
 

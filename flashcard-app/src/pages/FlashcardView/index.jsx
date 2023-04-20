@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import LoginPage from "../LoginPage";
 import './flashcardview.css'
 
-export default function FlashcardView({ token, setToken }) {
+export default function FlashcardView({testing=false, token, setToken }) {
   const [flashcards, setFlashcards] = useState([]);
   const [showCard, setShowCard] = useState({});
 
-  if (!token) {
+  if (!token && testing == false) {
     return <LoginPage token={token} setToken={setToken} />;
   }
 
@@ -52,6 +52,7 @@ export default function FlashcardView({ token, setToken }) {
   
   return ( 
     <div className="flashcard-grid">
+      <h1>View all Flashcards</h1>
       {flashcards && Array.isArray(flashcards) &&
         flashcards.map((flashcard) => (
           <div className="flashcard" key={flashcard.id}>

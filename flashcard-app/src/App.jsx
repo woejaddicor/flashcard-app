@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import * as Pages from './pages'
 import { Routes, Route } from 'react-router-dom'
 import { NavBar } from './layouts'
-//import { useToken } from "./contexts";
 import useToken from './useToken';
 
 import './assets/app.css';

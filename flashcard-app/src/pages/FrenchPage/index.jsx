@@ -6,14 +6,14 @@ import './french.css';
 
 const totalQuestions = 15;
 
-export default function FrenchPage({ token, setToken }) {
+export default function FrenchPage({ testing=false, token, setToken }) {
     const [question, setQuestion] = useState([]);
     const [index, setIndex] = useState(1);
     const [quizFinished, setQuizFinished] = useState(false);
     const [wrongAnswers, setWrongAnswers] = useState([]);
     const [clickedIndices, setClickedIndices] = useState([]);
 
-    if (!token) {
+    if (!token && testing == false) {
         return <LoginPage token={token} setToken={setToken} />
     }
 
@@ -61,7 +61,7 @@ export default function FrenchPage({ token, setToken }) {
 
     return (
         <div>
-            <h1> Translate the word</h1>
+            <h1>Translate the word</h1>
             <FlashcardNavigator
                 currentIndex={index}
                 onPreviousClick={handlePreviousClick}

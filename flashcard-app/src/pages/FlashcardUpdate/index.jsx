@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import LoginPage from "../LoginPage";
 
-export default function FlashcardUpdate({token, setToken}) {
+export default function FlashcardUpdate({testing=false, token, setToken}) {
 
-    if(!token) {
+    if(!token && testing == false) {
         return <LoginPage token={token} setToken={setToken}/>
     }
 
