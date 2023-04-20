@@ -70,7 +70,26 @@
     position: absolute;
     top: 5%;
     right: 5%;
+    background-color: red;
+    color: #EAF8BF;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 100%;
+    border-radius: 20px;
+    padding: 0.2em 1em;
+    margin-bottom: 1em;
+    border: none;
 }
+
+.wrong-btn[disabled] {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+
+
+
+
 
 .finish-btn {
     position: absolute;
@@ -126,3 +145,4 @@
     box-shadow: 0 8px 6px -6px rgb(56, 56, 56);
     transform: rotateY(180deg);
 }
+
