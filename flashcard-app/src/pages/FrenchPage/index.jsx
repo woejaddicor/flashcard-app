@@ -2,6 +2,27 @@ import React, { useState, useEffect } from "react";
 import { FlashcardNavigator, Flashcard, Score } from "../../components";
 import LoginPage from "../LoginPage";
 import '../../assets/flashcardStyles.css';
+import Button from 'react-bootstrap/button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+
+// const popover = (
+//   <Popover id="popover-basic">
+//     <Popover.Header as="h3">Popover right</Popover.Header>
+//     <Popover.Body>
+//       And here's some <strong>amazing</strong> content. It's very engaging.
+//       right?
+//     </Popover.Body>
+//   </Popover>
+// );
+
+// const Example = () => (
+//   <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+//     <Button variant="success">Click me to see</Button>
+//   </OverlayTrigger>
+// );
+
+// render(<Example />);
 
 export default function FrenchPage({ token, setToken }) {
     const [question, setQuestion] = useState([]);
@@ -14,6 +35,22 @@ export default function FrenchPage({ token, setToken }) {
     if (!token) {
         return <LoginPage token={token} setToken={setToken} />
     }
+
+  const popover = (
+  <Popover id="popover-basic">
+    <Popover.Header as="h3">Popover right</Popover.Header>
+    <Popover.Body>
+      And here's some <strong>amazing</strong> content. It's very engaging.
+      right?
+    </Popover.Body>
+  </Popover>
+);
+
+const Example = () => (
+  <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+    <Button variant="success">Click me to see</Button>
+  </OverlayTrigger>
+);
 
     useEffect(() => {
         async function fetchData() {
@@ -64,6 +101,7 @@ export default function FrenchPage({ token, setToken }) {
 
     return (
         <div>
+            <Example />
             <h1 className="french-page-title"> Translate the word</h1>
             <FlashcardNavigator
                 currentIndex={index}
@@ -83,8 +121,7 @@ export default function FrenchPage({ token, setToken }) {
                     </button>
                 )}
             </FlashcardNavigator>
-
-
+            
         </div>
     );
 }
