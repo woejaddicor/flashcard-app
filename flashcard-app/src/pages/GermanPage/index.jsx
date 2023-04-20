@@ -3,14 +3,13 @@ import { FlashcardNavigator, Flashcard, Score } from "../../components";
 import LoginPage from "../LoginPage";
 import '../../assets/flashcardStyles.css';
 
-const totalQuestions = 15;
-
 export default function GermanPage({ token, setToken }) {
     const [question, setQuestion] = useState([]);
     const [index, setIndex] = useState(1);
     const [quizFinished, setQuizFinished] = useState(false);
     const [wrongAnswers, setWrongAnswers] = useState([]);
     const [clickedIndices, setClickedIndices] = useState([]);
+    const [totalQuestions, setTotalQuestions] = useState();
 
     if (!token) {
         return <LoginPage token={token} setToken={setToken} />
@@ -20,8 +19,13 @@ export default function GermanPage({ token, setToken }) {
         async function fetchData() {
             const response = await fetch(`https://crammer-backend.onrender.com/german/${index}`);
             const data = await response.json();
-            console.log(data)
+
+            const response2 = await fetch(`https://crammer-backend.onrender.com/german`);
+            const maxQuestion = await response2.json();
+
+            setTotalQuestions(maxQuestion.questions.length);
             setQuestion(data.question);
+            
         }
         fetchData();
     }, [index]);
