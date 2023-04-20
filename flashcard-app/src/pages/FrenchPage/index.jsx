@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FlashcardNavigator, Flashcard, Score } from "../../components";
 import LoginPage from "../LoginPage";
-import './french.css';
+import '../../assets/flashcardStyles.css';
 
 const totalQuestions = 15;
 
@@ -20,6 +20,7 @@ export default function FrenchPage({ token, setToken }) {
         async function fetchData() {
             const response = await fetch(`https://crammer-backend.onrender.com/french/${index}`);
             const data = await response.json();
+            console.log(data)
             setQuestion(data.question);
         }
         fetchData();
