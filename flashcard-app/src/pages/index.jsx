@@ -1,7 +1,6 @@
 export {default as AboutUsPage} from './AboutUsPage'
 export {default as DashboardPage} from './DashboardPage'
 export {default as FlashcardCreate} from './FlashcardCreate'
-export {default as FlashcardUpdate} from './FlashcardUpdate'
 export {default as FlashcardView} from './FlashcardView'
 export {default as FrenchPage} from './FrenchPage'
 export {default as HomePage} from './HomePage'
