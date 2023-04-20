@@ -26,14 +26,15 @@ export default function AboutUsPage() {
 
   return (
     <div>
-      <h1>About Us</h1>
+      <h1 className="page-title">About Us</h1>
       <div className="accordion-container">
         <div className="grid-container">
           <div className="accordion" onClick={toggleAccordion1} data-testid="accordion1">
             <h2 className="accordion-title">Our Story</h2>
             {isAccordion1Open && (
               <div className="accordion-content">
-                <p data-testid="our-story-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p data-testid="our-story-content">Welcome to Crammer, the ultimate revision website designed to help you succeed in your academic pursuits! Our website is here to provide you with the tools and resources you need to excel in your Spanish and French exams and coursework. If you're a high school student preparing for your an exam, Crammer is the perfect place to start.</p>
+                <p>At Crammer, we believe that education should be accessible to everyone, which is why our website is completely free to use. We also offer personalized study plans and progress tracking, so you can keep track of your progress and stay on track to achieve your goals.</p>
               </div>
             )}
           </div>
@@ -41,7 +42,8 @@ export default function AboutUsPage() {
             <h2 className="accordion-title">About This App</h2>
             {isAccordion2Open && (
               <div className="accordion-content">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Our website offers flashcards designed to help you to maximize your learning potential. We cover Spanish, French, German and Italian subjects, so you can find everything you need to succeed in one convenient place.</p>
+                <p>We also offer the functionality of creating your own custom made flashcards, to focus on specific words or sentences for each subject.</p>
               </div>
             )}
           </div>
@@ -51,21 +53,25 @@ export default function AboutUsPage() {
             <h2 className="accordion-title">Contact Us</h2>
             {isAccordion3Open && (
               <div className="accordion-content">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Email: contact@crammer-education.com</p>
+                <p>Phone: +44 07928 600000</p>
               </div>
             )}
           </div>
           <div className="accordion" onClick={toggleAccordion4}>
-            <h2 className="accordion-title">More Information</h2>
+            <h2 className="accordion-title">Resources</h2>
             {isAccordion4Open && (
               <div className="accordion-content">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Useful links to enhance your learning process:</p>
+                <a href="https://l-lingo.com/blog/2019/02/its-crunch-time-mastering-timed-language-learning-creative-language-learning-series/">Pomodoro Technique for Language Learning</a><br></br>
+                <a href="https://learning.batterseaspanish.com/the-5-best-spanish-books-for-beginners/">5 Best Spanish Books for Beginners</a><br></br>
+                <a href="https://www.fluentu.com/blog/german/best-books-to-learn-german/">Books for Learning German</a><br></br>
               </div>
             )}
           </div>
         </div>
       </div>
-      <img className="crammer-logo" src={crammerLogo} alt="crammer logo"/>
+          <p className="footer">2023 Crammer Education.</p>
     </div>
   )
 }

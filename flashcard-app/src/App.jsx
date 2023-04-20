@@ -23,6 +23,8 @@ function App() {
         <Route path="/about" element={<Pages.AboutUsPage/>}/>
         <Route path="/french" element={<Pages.FrenchPage token={token} setToken={setToken}/>}/>
         <Route path="/spanish" element={<Pages.SpanishPage token={token} setToken={setToken}/>}/>
+        <Route path="/german" element={<Pages.GermanPage token={token} setToken={setToken}/>}/>
+        <Route path="/italian" element={<Pages.ItalianPage token={token} setToken={setToken}/>}/>
         <Route path="*" element={<Pages.NotFound/>}/>
       </Route>
     </Routes>
