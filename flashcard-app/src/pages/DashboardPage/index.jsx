@@ -16,6 +16,8 @@ export default function DashboardPage({ testing=false, token, setToken }) {
             <div className="cards-container">
                 <Link className="language-card" to="/french">French<br></br>🇫🇷</Link>
                 <Link className="language-card" to="/spanish">Spanish<br></br>🇪🇸</Link>
+                <Link className="language-card" to="/german">German<br></br>🇩🇪</Link>
+                <Link className="language-card" to="/italian">Italian<br></br>🇮🇹</Link>
             </div>
 
             <div>

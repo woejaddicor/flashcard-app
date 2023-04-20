@@ -1,7 +1,10 @@
 .flashcard-grid {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 20px
 }
 
 .flashcard {
@@ -35,5 +38,5 @@
   font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #ECA400;
   background-color: transparent;
-  font-size: 300%;
+  font-size: 200%;
 }

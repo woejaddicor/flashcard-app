@@ -41,6 +41,8 @@ export default function FlashcardCreate({token, setToken}) {
         })
         .then(response => response.json())
         .then(setNewQuestionSubmitted(true))
+        .then(setWordText(''))
+        .then(setAnswerText(''))
         .then(data => console.log(data))
         .catch(error => console.error(error));
     }
@@ -54,6 +56,8 @@ export default function FlashcardCreate({token, setToken}) {
                     <option defaultValue={selectedOption}>Select a language</option>
                     <option value="French">French</option>
                     <option value="Spanish">Spanish</option>
+                    <option value="German">German</option>
+                    <option value="Italian">Italian</option>
                 </select>
                 <h3 className="page-subtitles">Word / Phrase</h3>
                 <input className="input-boxes" type="text" name="words" placeholder="Example: Hello" value={wordText} onChange={handleWordChange} required/>
