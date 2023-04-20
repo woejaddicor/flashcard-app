@@ -14,8 +14,8 @@ export default function Instructions() {
                 To play the game <strong style={{ color: "#ECA400" }}>
                     hover over the blue card with the English text
                     </strong>. When you think you know the correct translation, click the card to flip it over and see. 
-                    <strong style={{ color: "#ECA400" }}>Click either the 'right' or 'wrong' button depending on the outcome
-                    </strong> and your score will total up at the end.
+                    <strong style={{ color: "#ECA400" }}> Click 'Review flashcard' if you want to come back to the flashcard at the end of the game.
+                    </strong> Clicking this button will also contribute to your percentage score.
             </Popover.Body>
         </Popover>
     );
