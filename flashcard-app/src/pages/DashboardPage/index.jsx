@@ -39,7 +39,6 @@ export default function DashboardPage({ testing=false, token, setToken }) {
                 </div>
                 </Link>
             </div>
-
             <div className="bottom-buttons-container">
                 <Link className="link-button create" to="/flashcardcreate">Create Flashcard</Link>
                 <Link className="link-button view" to="/flashcardview">View All Flashcards</Link>

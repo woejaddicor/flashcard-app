@@ -24,14 +24,14 @@
 
 .prev {
     position: absolute;
-    bottom: 5%;
-    left: 5%;
+    bottom: 40%;
+    left: 15%;
 }
 
 .nxt {
     position: absolute;
-    bottom: 5%;
-    right: 5%;
+    bottom: 40%;
+    right: 15%;
 }
 
 .navigation-btn[disabled] {
@@ -66,9 +66,10 @@
 }
 
 .wrong-btn {
-    position: absolute;
-    top: 5%;
-    right: 5%;
+    position: fixed;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: red;
     color: #EAF8BF;
     text-transform: uppercase;
@@ -83,6 +84,11 @@
 .wrong-btn[disabled] {
     opacity: 0.2;
     cursor: not-allowed;
+}
+
+.question-count{
+    padding: 20px;
+    font: optional;
 }
 
 .finish-btn {
@@ -200,3 +206,21 @@
     color: #001D4A;
     padding-bottom: 1em;
 }
+
+.instructions-button {
+    background-color: #ECA400;
+    margin-top: 10px;
+    font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #EAF8BF;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 130%;
+    border-radius: 25px;
+    padding: 0.3em 1.7em;
+    border: none;
+    position: absolute;
+    top: 1;
+    left: 0;
+    margin-left: 10px;
+  }
+  
