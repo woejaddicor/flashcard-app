@@ -53,7 +53,7 @@ export default function FlashcardView({testing=false, token, setToken }) {
   
   return ( 
     <>
-      <h1 className="french-page-title">My Flashcards</h1>
+      <h1 className="my-flashcards-title">My Flashcards</h1>
       <div className="flashcard-grid">
         {flashcards && Array.isArray(flashcards) &&
           flashcards.map((flashcard) => (
