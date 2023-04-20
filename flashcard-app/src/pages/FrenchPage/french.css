@@ -39,7 +39,6 @@
     pointer-events: none;
 }
 
-
 .flashcard-container {
     display: inline-block;
     align-items: center;
@@ -70,6 +69,20 @@
     position: absolute;
     top: 5%;
     right: 5%;
+    background-color: red;
+    color: #EAF8BF;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 100%;
+    border-radius: 20px;
+    padding: 0.2em 1em;
+    margin-bottom: 1em;
+    border: none;
+}
+
+.wrong-btn[disabled] {
+    opacity: 0.2;
+    cursor: not-allowed;
 }
 
 .finish-btn {
@@ -118,7 +131,6 @@
     background-clip: padding-box;
 }
 
-
 .card-face-back {
     background-color: #006992;
     border: black solid 2px;
@@ -126,3 +138,45 @@
     box-shadow: 0 8px 6px -6px rgb(56, 56, 56);
     transform: rotateY(180deg);
 }
+
+.flagged-questions-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .flagged-question {
+    width: 200px; 
+    height: 200px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    color: #ECA400;
+    font-family: Oswald, "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .flagged-question:hover {
+    transform: scale(1.1);
+  }
+  
+  .flagged-question:hover {
+    transform: scale(1.1);
+  }
+  
+  .flagged-question p {
+    background-color: transparent;
+    color: #ECA400;
+    font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #ECA400;
+    background-color: transparent;
+    font-size: 25px;
+    margin: 30% 5%;
+  }
+  
+  
+  

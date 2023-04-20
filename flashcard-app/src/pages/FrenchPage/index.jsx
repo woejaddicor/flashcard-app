@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FlashcardNavigator, Flashcard, Score } from "../../components";
 import LoginPage from "../LoginPage";
-
 import './french.css';
 
 const totalQuestions = 15;
