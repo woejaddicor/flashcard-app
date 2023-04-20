@@ -19,11 +19,29 @@ export default function HomePage() {
                 <h2 className="language-choice">Learn</h2>
             </div>
             <div className="buttons-container">
-                <Link to="/french" className="language-links">
-                    French<br></br>🇫🇷
+                    <Link to="/french" className="language-links">
+                <div className="container-child">
+                    French
+                    <p className="flags">🇫🇷</p>
+                </div>
+                    </Link>
+                    <Link to="/spanish" className="language-links">
+                <div className="container-child">
+                Spanish 
+                <p className="flags">🇪🇸</p>
+                </div>
+                    </Link>
+                    <Link to="/german" className="language-links">
+                <div className="container-child">
+                German
+                <p className="flags">🇩🇪</p>
+                </div>
                 </Link>
-                <Link to="/spanish" className="language-links">
-                Spanish<br></br>🇪🇸
+                <Link to="/italian" className="language-links">
+                <div className="container-child">
+                    Italian
+                    <p className="flags">🇮🇹</p> 
+                </div>
                 </Link>
             </div>
         </div>

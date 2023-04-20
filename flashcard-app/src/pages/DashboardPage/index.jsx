@@ -13,12 +13,34 @@ export default function DashboardPage({ testing=false, token, setToken }) {
 
         <div className="dashboard-container">
             <h1 className="dashboard-title">Dashboard</h1>
-            <div className="cards-container">
-                <Link className="language-card" to="/french">French<br></br>🇫🇷</Link>
-                <Link className="language-card" to="/spanish">Spanish<br></br>🇪🇸</Link>
+            <div className="buttons-container">
+                    <Link to="/french" className="language-links">
+                <div className="container-child">
+                    French
+                    <p className="flags">🇫🇷</p>
+                </div>
+                    </Link>
+                    <Link to="/spanish" className="language-links">
+                <div className="container-child">
+                Spanish 
+                <p className="flags">🇪🇸</p>
+                </div>
+                    </Link>
+                    <Link to="/german" className="language-links">
+                <div className="container-child">
+                German
+                <p className="flags">🇩🇪</p>
+                </div>
+                </Link>
+                <Link to="/italian" className="language-links">
+                <div className="container-child">
+                    Italian
+                    <p className="flags">🇮🇹</p> 
+                </div>
+                </Link>
             </div>
 
-            <div>
+            <div className="bottom-buttons-container">
                 <Link className="link-button create" to="/flashcardcreate">Create Flashcard</Link>
                 <Link className="link-button view" to="/flashcardview">View All Flashcards</Link>
             </div>

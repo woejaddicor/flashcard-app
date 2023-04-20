@@ -1,7 +1,10 @@
 .flashcard-grid {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 20px
 }
 
 .flashcard {
@@ -19,12 +22,15 @@
   color: #EAF8BF;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 130%;
+  font-size: 120%;
   border-radius: 25px;
-  padding: 0.3em 1.7em;
+  padding: 0.3em 1.0em;
   margin-bottom: 1em;
   border: none;
+  display: inline-block;
+  margin-right: 10px;
 }
+
 
 .view-flashcard-btn:hover {
   background-color: #006992;
@@ -35,5 +41,15 @@
   font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #ECA400;
   background-color: transparent;
-  font-size: 300%;
+  font-size: 180%;
+}
+
+.language-type {
+  border-radius: 10px;
+  font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #ECA400;
+  font-weight: bold;
+  background-color: #006992;
+  font-size: 20px;
+  margin-bottom: 2px;
 }
