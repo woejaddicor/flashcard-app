@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 
-export default function Score({ score, totalQuestions, flaggedQuestions }) {
+export default function Score({ testing=false, score, totalQuestions, flaggedQuestions }) {
     const [clickedQuestions, setClickedQuestions] = useState([]);
     const percentage = (parseInt((score / totalQuestions) * 100));
 
