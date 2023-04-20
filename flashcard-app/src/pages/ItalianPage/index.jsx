@@ -96,7 +96,7 @@ export default function ItalianPage({ testing=false, token, setToken }) {
                 {question.map((phrase) => (
                     <Flashcard key={phrase.id} phrase={phrase} />
                 ))}
-                <button className="wrong-btn" onClick={handleWrongClick} disabled={clickedIndices.includes(index)}>Wrong</button>
+                <button className="wrong-btn" onClick={handleWrongClick} disabled={clickedIndices.includes(index)}>Review flashcard</button>
     
                 {index === totalQuestions && (
                     <button className="finish-btn" onClick={handleFinishClick}>
