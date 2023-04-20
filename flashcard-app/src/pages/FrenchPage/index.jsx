@@ -94,18 +94,21 @@ export default function FrenchPage({ testing=false, token, setToken }) {
                 {question.map((phrase) => (
                     <Flashcard key={phrase.id} phrase={phrase} />
                 ))}
+
                 <button className="wrong-btn" onClick={handleWrongClick} disabled={clickedIndices.includes(index)}>Review flashcard</button>
-    
+            </FlashcardNavigator>
+
+            <div className="question-count">
+                Word {index} of {totalQuestions}
+
                 {index === totalQuestions && (
                     <button className="finish-btn" onClick={handleFinishClick}>
                         Finish
                     </button>
                 )}
-            </FlashcardNavigator>
-            
-            <div className="question-count">
-                Word {index} of {totalQuestions}
+
             </div>
         </div>
     );
+
 }
