@@ -10,5 +10,4 @@ export default function LoginRegisterButton({buttonText, handleLogin}) {
             {buttonText}</button>
         </div>
     )
-
 }
