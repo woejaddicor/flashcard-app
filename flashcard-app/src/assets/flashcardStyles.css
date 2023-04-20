@@ -38,7 +38,7 @@ html, body {
   justify-content: center;
 }
 
-.prev {
+/* .prev {
   position: absolute;
   bottom: 55%;
   left: 15%;
@@ -48,7 +48,7 @@ html, body {
   position: absolute;
   bottom: 55%;
   right: 15%;
-}
+} */
 
 .navigation-btn[disabled] {
   opacity: 0.5;
@@ -106,6 +106,7 @@ html, body {
 
 .finish-btn {
   margin-top: 10px;
+  margin-bottom: 20px;
   background-color: chartreuse;
   color: #EAF8BF;
   text-transform: uppercase;
@@ -254,7 +255,7 @@ html, body {
     }
 
     .navigation-btn {
-        margin: 5px 0;
+        margin: 50px 0;
         flex: none;
         width: 100%;
     }
@@ -289,6 +290,9 @@ html, body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-left: 10%;
+        margin-right: 10%;
+        padding: 50px;
     }
 
     .wrong-btn {
