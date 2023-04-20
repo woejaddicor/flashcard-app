@@ -38,4 +38,9 @@ describe('Login Page', () => {
     const button = screen.getByRole('button', { name: "Login" });
     expect(button).toBeInTheDocument();
   });
+
+  it('has anchor tag with reference to Register Page', async () => {
+    const dashLink = screen.getByText('Sign up').closest('a');
+    expect(dashLink).toHaveAttribute('href', '/register');
+  });
 });

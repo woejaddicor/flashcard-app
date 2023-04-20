@@ -3,7 +3,7 @@ import { FlashcardNavigator, Flashcard, Score } from "../../components";
 import LoginPage from "../LoginPage";
 import '../../assets/flashcardStyles.css';
 
-export default function FrenchPage({ token, setToken }) {
+export default function FrenchPage({ testing=false, token, setToken }) {
     const [question, setQuestion] = useState([]);
     const [index, setIndex] = useState(1);
     const [quizFinished, setQuizFinished] = useState(false);
@@ -11,7 +11,7 @@ export default function FrenchPage({ token, setToken }) {
     const [clickedIndices, setClickedIndices] = useState([]);
     const [totalQuestions, setTotalQuestions] = useState();
 
-    if (!token) {
+    if (!token && testing == false) {
         return <LoginPage token={token} setToken={setToken} />
     }
 
@@ -64,7 +64,7 @@ export default function FrenchPage({ token, setToken }) {
 
     return (
         <div>
-            <h1 className="french-page-title"> Translate the word</h1>
+            <h1 className="french-page-title">Translate the word</h1>
             <FlashcardNavigator
                 currentIndex={index}
                 onPreviousClick={handlePreviousClick}

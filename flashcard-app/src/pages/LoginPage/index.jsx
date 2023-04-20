@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { LoginForm, LoginRegisterButton } from "../../components";
 import { useNavigate } from "react-router-dom";
-import { useToken } from "../../contexts";
 import PropTypes from 'prop-types';
 
 import './login.css'

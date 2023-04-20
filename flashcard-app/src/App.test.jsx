@@ -34,5 +34,5 @@ describe('App', () => {
   it('has anchor tag with reference of Dasboard Page', async () => {
     const dashLink = screen.getByText('Dashboard').closest('a');
     expect(dashLink).toHaveAttribute('href', '/dashboard');
-  });"npm"
+  });
 });
