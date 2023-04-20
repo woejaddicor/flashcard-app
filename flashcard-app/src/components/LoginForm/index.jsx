@@ -10,7 +10,7 @@ export default function LoginForm({username, setUsername, password, setPassword}
     }
 
     return(
-        <div>
+        <div className="form-container">
             <form className="login-form">
                 <div className="username">
                     <label className="label-text">Username</label><br></br>
