@@ -16,7 +16,6 @@ The purpose of the app is provide flashcard revision to secondary school student
 | Register | Page wherein the user registers with new credentials |
 | AboutUs | Page where additional information can be found about the site |
 | Dashboard | User restricted along with all pages mentioned below, here the user can view the all of the languages and view  |
-| French | View and revise French flashcards |
 | Spanish | View and revise Spanish flashcards |
 | German | View and revise German flashcards |
 | Italian | View and revise Italian flashcards |
@@ -26,25 +25,25 @@ The purpose of the app is provide flashcard revision to secondary school student
 ## Page Views
 
 ### Home Page
-![Home](./src/assets/Home.PNG)
+![Home](./flashcard-app/src/assets/Home.PNG)
 
 ### Login Page
-![Login](./src/assets/Login.PNG)
+![Login](./flashcard-app/src/assets/Login.PNG)
 
 ### Register Page
-![Register](./src/assets/Register.PNG)
+![Register](./flashcard-app/src/assets/Register.PNG)
 
 ### About Us Page
-![About Us](./src/assets/About%20Us.PNG)
+![About Us](./flashcard-app/src/assets/About%20Us.PNG)
 
 ### Dashboard Page
-![Dashboard](./src/assets/Dashboard.PNG)
+![Dashboard](./flashcard-app/src/assets/Dashboard.PNG)
 
 ### Language Pages
-![Language](./src/assets/Language.PNG)
+![Language](./flashcard-app/src/assets/Language.PNG)
 
 ### Flashcard Create Page
-![Create](./src/assets/Create%20Flashcard.PNG)
+![Create](./flashcard-app/src/assets/Create%20Flashcard.PNG)
 
 ### Flashcard View Page
-![View](./src/assets/View%20Flashcard.PNG)
+![View](./flashcard-app/src/assets/View%20Flashcard.PNG)
