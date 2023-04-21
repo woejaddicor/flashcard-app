@@ -1,0 +1,2 @@
+[build]
+  rollupOptions = { external: ["react-bootstrap/button"] }
