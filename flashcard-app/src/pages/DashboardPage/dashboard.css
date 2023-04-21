@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Anton&family=Roboto&family=Montserrat&display=swap");
+
+.dashboard-title {
+    font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: #001D4A;
+    font-size: 300%;
+    padding: 1em 0em;
+
+}
+
+.dashboard-container {
+    position: relative;
+    height: 60vh;
+}
+
+.link-button:hover {
+        background-color: #006992;
+        color: #ECA400;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+    align-content: center;
+    background-color: #DDF0F8;
+    max-width: 90%;
+    margin: 0 auto;
+    grid-gap: 20px;
+}
+
+.container-child {
+    background-color: #006992;
+    border: 3px solid #92daf9;
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.container-child:hover {
+    transform: scale(1.05);
+    color: #ECA400;
+}
+
+.language-links {
+    color: #ECA400;
+    font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 200%;
+    text-decoration: none;
+}
+
+.flags {
+    background-color: #006992;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.bottom-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .link-button {
+    font-family: Oswald, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #ECA400;
+    color: #EAF8BF;
+    padding: 0.3em 1.7em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 130%;
+    margin: 0 10px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .button-container {
+      flex-direction: column;
+    }
+    .link-button {
+      margin: 10px 10px;
+    }
+  }
+  
+

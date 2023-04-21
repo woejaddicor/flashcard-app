@@ -1,34 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react'
+import * as Pages from './pages'
+import { Routes, Route } from 'react-router-dom'
+import { NavBar } from './layouts'
+import useToken from './useToken';
+
+import './assets/app.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const {token, setToken} = useToken();
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <Routes>
+      <Route path="/" element={<NavBar token={token}/>}>
+        <Route index element={<Pages.HomePage/>}/>
+        <Route path="/login" element={<Pages.LoginPage token={token} setToken={setToken}/>}/>
+        <Route path="/register" element={<Pages.RegisterPage/>}/>
+        <Route path="/dashboard" element={<Pages.DashboardPage token={token} setToken={setToken}/>}/>
+        <Route path="/flashcardcreate" element={<Pages.FlashcardCreate token={token} setToken={setToken}/>}/>
+        <Route path="/flashcardupdate" element={<Pages.FlashcardUpdate token={token} setToken={setToken}/>}/>
+        <Route path="/flashcardview" element={<Pages.FlashcardView token={token} setToken={setToken}/>}/>
+        <Route path="/about" element={<Pages.AboutUsPage/>}/>
+        <Route path="/french" element={<Pages.FrenchPage token={token} setToken={setToken}/>}/>
+        <Route path="/spanish" element={<Pages.SpanishPage token={token} setToken={setToken}/>}/>
+        <Route path="/german" element={<Pages.GermanPage token={token} setToken={setToken}/>}/>
+        <Route path="/italian" element={<Pages.ItalianPage token={token} setToken={setToken}/>}/>
+        <Route path="*" element={<Pages.NotFound/>}/>
+      </Route>
+    </Routes>
   )
 }
 

@@ -1,1 +1,49 @@
-# flashcard-app
+# Crammer Education Frontend
+
+## Contents
+
+### Overview and Problem Statement 
+
+Crammer Education require a app added to their portfolio that helps increase their customer base, the purpose of the app being to support students with their revision.
+
+The purpose of the app is provide flashcard revision to secondary school students. Users will be able to view a preset selection of flashcards for the languages for French, Spanish, German and Italian where they can revise the language and choose whether they memerised the card incorrect. Further from this they can view their score and create additional custom flashcards to revise.
+
+### Pages
+| Page | Description |
+|------|-------------|
+| Home | Landing page of the app, display basic info about the site |
+| Login | Page wherein the user logs into their account |
+| Register | Page wherein the user registers with new credentials |
+| AboutUs | Page where additional information can be found about the site |
+| Dashboard | User restricted along with all pages mentioned below, here the user can view the all of the languages and view  |
+| Spanish | View and revise Spanish flashcards |
+| German | View and revise German flashcards |
+| Italian | View and revise Italian flashcards |
+| Flashcard Create | User can create a flashcard, inserting their own question and answer |
+| Flashcard View | View all flashcards they can created |
+
+## Page Views
+
+### Home Page
+![Home](./flashcard-app/src/assets/Home.PNG)
+
+### Login Page
+![Login](./flashcard-app/src/assets/Login.PNG)
+
+### Register Page
+![Register](./flashcard-app/src/assets/Register.PNG)
+
+### About Us Page
+![About Us](./flashcard-app/src/assets/About%20Us.PNG)
+
+### Dashboard Page
+![Dashboard](./flashcard-app/src/assets/Dashboard.PNG)
+
+### Language Pages
+![Language](./flashcard-app/src/assets/Language.PNG)
+
+### Flashcard Create Page
+![Create](./flashcard-app/src/assets/Create%20Flashcard.PNG)
+
+### Flashcard View Page
+![View](./flashcard-app/src/assets/View%20Flashcard.PNG)
