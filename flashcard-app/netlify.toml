@@ -1,9 +1,2 @@
-{
-  "build": {
-    "rollupOptions": {
-      "external": [
-        "react-bootstrap/button"
-      ]
-    }
-  }
-}
+[build]
+rollupOptions = { external: ["react-bootstrap/button"] }
